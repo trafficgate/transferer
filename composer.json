@@ -1,0 +1,42 @@
+{
+    "name": "trafficgate/transferer",
+    "description": "PHP objects for handling file transfers.",
+    "license": "MIT",
+    "support": {
+        "issues": "https://www.github.com/trafficgate/transferer/issues",
+        "source": "https://www.github.com/trafficgate/transferer"
+    },
+    "authors": [
+        {
+            "name": "Andrew Miller",
+            "email": "andrew.miller@rakuten.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/console": "~5.0",
+        "illuminate/support": "~5.0",
+        "symfony/process": "~2.8|~3.0",
+        "trafficgate/shell-command": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^1.12",
+        "phpunit/phpunit": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Trafficgate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Trafficgate\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.1.x-dev"
+        }
+    },
+    "minimum-stability": "stable"
+}
