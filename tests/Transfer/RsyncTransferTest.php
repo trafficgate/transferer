@@ -103,7 +103,7 @@ class RsyncTransferTest extends PHPUnit_Framework_TestCase
 
     public function testNoOption()
     {
-        $switch = RsyncTransfer::OPTION_NO_OPTION;
+        $switch  = RsyncTransfer::OPTION_NO_OPTION;
         $message = "The switch {$switch} is not yet implemented!";
 
         $this->expectException(UnimplementedSwitchException::class);
@@ -1287,7 +1287,7 @@ class RsyncTransferTest extends PHPUnit_Framework_TestCase
 
     public function testRemoteOption()
     {
-        $switch = RsyncTransfer::OPTION_REMOTE_OPTION;
+        $switch  = RsyncTransfer::OPTION_REMOTE_OPTION;
         $message = "The switch {$switch} is not yet implemented!";
 
         $this->expectException(UnimplementedSwitchException::class);
