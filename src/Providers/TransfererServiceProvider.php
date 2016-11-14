@@ -5,7 +5,6 @@ namespace Trafficgate\Providers;
 use Illuminate\Support\ServiceProvider;
 use Trafficgate\Console\Commands\Rsync;
 use Trafficgate\Console\Commands\Scp;
-use Trafficgate\Console\Commands\ScpImpressionLogs;
 use Trafficgate\Daemon\RsyncDaemon;
 use Trafficgate\Transfer\RsyncTransfer;
 use Trafficgate\Transfer\ScpTransfer;
@@ -23,25 +22,23 @@ class TransfererServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register()
     {
         $this->app->singleton('scp-transfer', function ($app) {
-            $scpTransfer = new ScpTransfer()->setLogger($app('log'));
+            $scpTransfer = (new ScpTransfer())->setLogger($app('log'));
 
             return $scpTransfer;
         });
 
         $this->app->singleton('rsync-transfer', function ($app) {
-            $rsyncTransfer = new RsyncTransfer()->setLogger($app('log'));
+            $rsyncTransfer = (new RsyncTransfer())->setLogger($app('log'));
 
             return $rsyncTransfer;
         });
 
         $this->app->singleton('rsync-daemon', function ($app) {
-            $rsyncTransfer = new RsyncDaemon()->setLogger($app('log'));
+            $rsyncTransfer = (new RsyncDaemon())->setLogger($app('log'));
 
             return $rsyncTransfer;
         });
@@ -64,8 +61,6 @@ class TransfererServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
