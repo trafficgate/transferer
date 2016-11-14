@@ -2,6 +2,7 @@
 
 namespace Trafficgate\Transfer;
 
+use Trafficgate\Exceptions\UnimplementedSwitchException;
 use Trafficgate\Transfer;
 
 class RsyncTransfer extends Transfer
@@ -723,19 +724,17 @@ class RsyncTransfer extends Transfer
      * --no-r.   Note  also that the side-effects of the --files-from option are NOT positional, as it affects the default state of several
      * options and slightly changes the meaning of -a (see the --files-from option for more details).
      *
-     * @todo This will require special work to negate options
-     *
      * @param null $option
      * @param bool $remove
      * @param bool $enable
+     *
+     * @throws UnimplementedSwitchException
      *
      * @return $this
      */
     public function noOption($option = null, $remove = false, $enable = true)
     {
-        $this->infoMessage('Attempted to use ['.static::OPTION_NO_OPTION.'].');
-
-        return $this;
+        throw new UnimplementedSwitchException(static::OPTION_NO_OPTION);
     }
 
     /**
@@ -3040,19 +3039,17 @@ class RsyncTransfer extends Transfer
      * in  it next to a short option letter (e.g. -M--log-file=/tmp/foo.  If this bug affects your version of popt, you can use the version
      * of popt that is included with rsync.
      *
-     * @todo This will require special work to chain options
-     *
      * @param $option
      * @param bool $remove
      * @param bool $enable
+     *
+     * @throws UnimplementedSwitchException
      *
      * @return $this
      */
     public function remoteOption($option = null, $remove = false, $enable = true)
     {
-        $this->infoMessage('Attempted to use ['.static::OPTION_REMOTE_OPTION.'].');
-
-        return $this;
+        throw new UnimplementedSwitchException(static::OPTION_REMOTE_OPTION);
     }
 
     /**

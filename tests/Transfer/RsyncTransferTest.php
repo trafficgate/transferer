@@ -3,6 +3,7 @@
 namespace Trafficgate\Transfer;
 
 use PHPUnit_Framework_TestCase;
+use Trafficgate\Exceptions\UnimplementedSwitchException;
 
 class RsyncTransferTest extends PHPUnit_Framework_TestCase
 {
@@ -102,7 +103,13 @@ class RsyncTransferTest extends PHPUnit_Framework_TestCase
 
     public function testNoOption()
     {
-        $this->markTestIncomplete('['.RsyncTransfer::OPTION_NO_OPTION.'] is not yet implemented.');
+        $switch = RsyncTransfer::OPTION_NO_OPTION;
+        $message = "The switch {$switch} is not yet implemented!";
+
+        $this->expectException(UnimplementedSwitchException::class);
+        $this->expectExceptionMessage($message);
+
+        (new RsyncTransfer())->noOption();
     }
 
     public function testRecursive()
@@ -1280,7 +1287,13 @@ class RsyncTransferTest extends PHPUnit_Framework_TestCase
 
     public function testRemoteOption()
     {
-        $this->markTestIncomplete('['.RsyncTransfer::OPTION_REMOTE_OPTION.'] is not yet implemented.');
+        $switch = RsyncTransfer::OPTION_REMOTE_OPTION;
+        $message = "The switch {$switch} is not yet implemented!";
+
+        $this->expectException(UnimplementedSwitchException::class);
+        $this->expectExceptionMessage($message);
+
+        (new RsyncTransfer())->remoteOption();
     }
 
     public function testOutFormat()
