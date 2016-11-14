@@ -2181,11 +2181,6 @@ class RsyncTransfer extends Transfer
      */
     public function chown($chown = null, $remove = false, $enable = true)
     {
-        // $chown = $user;
-        // if (isset($group)) {
-        //     $chown .= ":$group";
-        // }
-
         return $this->updateOption(static::OPTION_CHOWN, $enable, $chown, $remove);
     }
 
