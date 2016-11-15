@@ -226,7 +226,7 @@ class ScpTransfer extends Transfer
      *
      * @return $this
      */
-    public function cipher($value = null,  $remove = false, $enabled = true)
+    public function cipher($value = null, $remove = false, $enabled = true)
     {
         return $this->updateOption(static::OPTION_CIPHER, $enabled, $value, $remove);
     }
@@ -242,7 +242,7 @@ class ScpTransfer extends Transfer
      *
      * @return $this
      */
-    public function sshConfig($value = null,  $remove = false, $enabled = true)
+    public function sshConfig($value = null, $remove = false, $enabled = true)
     {
         return $this->updateOption(static::OPTION_SSH_CONFIG, $enabled, $value, $remove);
     }
@@ -259,7 +259,7 @@ class ScpTransfer extends Transfer
      *
      * @return $this
      */
-    public function identityFile($value = null,  $remove = false, $enabled = true)
+    public function identityFile($value = null, $remove = false, $enabled = true)
     {
         return $this->updateOption(static::OPTION_IDENTITY_FILE, $enabled, $value, $remove);
     }
@@ -273,7 +273,7 @@ class ScpTransfer extends Transfer
      *
      * @return $this
      */
-    public function limit($value = null,  $remove = false, $enabled = true)
+    public function limit($value = null, $remove = false, $enabled = true)
     {
         return $this->updateOption(static::OPTION_LIMIT, $enabled, $value, $remove);
     }
@@ -340,7 +340,7 @@ class ScpTransfer extends Transfer
      *
      * @return $this
      */
-    public function sshOptions($value = null,  $remove = false, $enabled = true)
+    public function sshOptions($value = null, $remove = false, $enabled = true)
     {
         return $this->updateOption(static::OPTION_SSH_OPTIONS, $enabled, $value, $remove);
     }
@@ -358,7 +358,7 @@ class ScpTransfer extends Transfer
      *
      * @return $this
      */
-    public function port($value = null,  $remove = false, $enabled = true)
+    public function port($value = null, $remove = false, $enabled = true)
     {
         return $this->updateOption(static::OPTION_PORT, $enabled, $value, $remove);
     }
@@ -414,7 +414,7 @@ class ScpTransfer extends Transfer
      *
      * @return $this
      */
-    public function program($value = null,  $remove = false, $enabled = true)
+    public function program($value = null, $remove = false, $enabled = true)
     {
         return $this->updateOption(static::OPTION_PROGRAM, $enabled, $value, $remove);
     }

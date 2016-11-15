@@ -1,0 +1,21 @@
+preset: recommended
+
+risky: false
+
+enabled:
+    - align_equals
+    - combine_consecutive_unsets
+    - no_empty_comment
+    - no_useless_else
+    - not_operator_with_successor_space
+    - phpdoc_annotation_without_dot
+    - phpdoc_no_empty_return
+    - pre_increment
+
+disabled:
+    - simplified_null_return
+    - unalign_equals
+
+finder:
+  name:
+    - "*.php"
