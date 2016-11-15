@@ -321,13 +321,6 @@ class Rsync extends Command
         $ipv4              = $this->option('ipv4');
         $ipv6              = $this->option('ipv6');
 
-        // Not yet implemented:
-
-        // $no = $this->option('no');
-        // $remoteOption = $this->option('remote-option');
-        // $version = $this->option('version');
-        // $help = $this->option('help');
-
         $source       = $this->argument('source');
         $destination  = $this->argument('destination');
 
@@ -338,13 +331,6 @@ class Rsync extends Command
 
         list($sourceUser, $sourceHost, $source)                = DataSourceName::split($source);
         list($destinationUser, $destinationHost, $destination) = DataSourceName::split($destination);
-
-        // Not yet implemented:
-
-        // ->no($no, isset($no))
-        // ->remoteOption($remoteOption, isset($remoteOption))
-        // ->version($version)
-        // ->help($help)
 
         $this->getRsync()
             ->setCommandTimeout($commandTimeout)

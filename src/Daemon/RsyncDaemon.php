@@ -42,7 +42,7 @@ class RsyncDaemon extends RsyncTransfer
      *
      * @return $this
      */
-    final private function daemon($enable = true)
+    final public function daemon($enable = true)
     {
         return $this->updateOption(static::OPTION_DAEMON, $enable);
     }

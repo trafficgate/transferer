@@ -12,6 +12,17 @@ class RsyncDaemonTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(RsyncDaemon::class, $rsyncDaemon);
     }
 
+    public function testDaemon()
+    {
+        $rsyncDaemon = new RsyncDaemon();
+        $return      = $rsyncDaemon->daemon($enable = false);
+        $this->assertSame($rsyncDaemon, $return);
+        $this->assertEquals("'rsync' '' ''", $rsyncDaemon->getCommandString());
+
+        $rsyncDaemon->daemon();
+        $this->assertEquals("'rsync' '--daemon' '' ''", $rsyncDaemon->getCommandString());
+    }
+
     public function testAddress()
     {
         $rsyncDaemon = new RsyncDaemon();
