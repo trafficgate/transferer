@@ -13,7 +13,7 @@ enabled:
     - pre_increment
 
 disabled:
-    - simplified_null_return
+    #- simplified_null_return
     - unalign_equals
 
 finder:

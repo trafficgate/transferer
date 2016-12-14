@@ -52,7 +52,7 @@ class Rsync extends Command
                             {--g|group : preserve group}
                             {--devices : preserve device files (super-user only)}
                             {--specials : preserve special files}
-                            {-D : same as --devices --specials}
+                            {--D : same as --devices --specials}
                             {--t|times : preserve modification times}
                             {--O|omit-dir-times : omit directories from --times}
                             {--J|omit-link-times : omit symlinks from --times}
@@ -108,7 +108,7 @@ class Rsync extends Command
                             {--skip-compress= : skip compressing files with suffix in LIST}
                             {--C|cvs-exclude : auto-ignore files in the same way CVS does}
                             {--f|filter= : add a file-filtering RULE}
-                            {-F : same as --filter=\'dir-merge ./rsync-filter\'}
+                            {--F : same as --filter=\'dir-merge ./rsync-filter\'}
                             {--exclude= : exclude files matching PATTERN}
                             {--exclude-from= : read exclude file patterns from FILE}
                             {--include= : don\'t exclude files matching PATTERN}
@@ -125,7 +125,7 @@ class Rsync extends Command
                             {--8|8-bit-output : leave high-bit chars unescaped in output}
                             {--human-readable : output numbers in a human-readable format}
                             {--progress : show progress during transfer}
-                            {-P : same as --partial --progress}
+                            {--P : same as --partial --progress}
                             {--i|itemize-changes : output a change-summary for all updates}
                             {--M|remote-option= : send OPTION to the remote side only}
                             {--out-format= : output updates using the specified FORMAT}
