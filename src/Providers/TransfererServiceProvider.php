@@ -26,19 +26,19 @@ class TransfererServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('scp-transfer', function ($app) {
-            $scpTransfer = (new ScpTransfer())->setLogger($app('log'));
+            $scpTransfer = (new ScpTransfer())->setLogger($app['log']);
 
             return $scpTransfer;
         });
 
         $this->app->singleton('rsync-transfer', function ($app) {
-            $rsyncTransfer = (new RsyncTransfer())->setLogger($app('log'));
+            $rsyncTransfer = (new RsyncTransfer())->setLogger($app['log']);
 
             return $rsyncTransfer;
         });
 
         $this->app->singleton('rsync-daemon', function ($app) {
-            $rsyncTransfer = (new RsyncDaemon())->setLogger($app('log'));
+            $rsyncTransfer = (new RsyncDaemon())->setLogger($app['log']);
 
             return $rsyncTransfer;
         });
