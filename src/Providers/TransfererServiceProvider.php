@@ -45,11 +45,11 @@ class TransfererServiceProvider extends ServiceProvider
 
         $this->app->alias('scp-transfer', ScpTransfer::class);
 
-        $this->app['command.scp'] = $this->app->share(function ($app) {
+        $this->app->singleton('command.scp', function ($app) {
             return new Scp($app['scp-transfer']);
         });
 
-        $this->app['command.rsync'] = $this->app->share(function ($app) {
+        $this->app->singleton('command.rsync', function ($app) {
             return new Rsync($app['rsync-transfer']);
         });
 
