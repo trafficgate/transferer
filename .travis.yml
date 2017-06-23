@@ -1,27 +1,26 @@
 language: php
-
 php:
-  - 5.6
-  - 7.0
-  - 7.1
-  - hhvm
-
+- 5.6
+- 7.0
+- 7.1
+- hhvm
 matrix:
   allow_failures:
-    - php: 7.1
-    - php: hhvm
+  - php: 7.1
+  - php: hhvm
   fast_finish: true
-
 before_install:
-  - ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
-  - cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-  - chmod 0600 ~/.ssh/{authorized_keys,id_rsa,id_rsa.pub}
-  - eval "$(ssh-agent -s)" #start the ssh agent
-  - ssh-add
-  - composer self-update
-
+- ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
+- cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+- chmod 0600 ~/.ssh/{authorized_keys,id_rsa,id_rsa.pub}
+- eval "$(ssh-agent -s)"
+- ssh-add
+- composer self-update
 install:
-  - travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest
-
+- travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest
 script:
-  - vendor/bin/phpunit
+- vendor/bin/phpunit
+notifications:
+  hipchat:
+    rooms:
+      secure: VPz5bbiAfPbfSs+FSrdq0IAg81pabKfjX1Yk2/bRdNyFVBsuCyZzRsBFZvN4F6JsfMDy7IUGZWSAQgzBt/jgsG9aetE0BUAa2zlq+rmGkp6D9nyUYg6msXfHu1IrVC5K03l5GV+XofOhR5UucHG6CRg1UDWRIdi7vcJn2syQbdXPOsntNHpT+EOiYowZtvDdgHoVUXrG8sFoG7nLBluSMKhU6wjlI3hX8c4rhpUiGxwhDFeydiUhqyIhes0Tktz5YzHChgXeRcpXxeUBmkEja/NHdN9FB++288DU9igBLflDVkxdQClttO86Jpeqgd5zZ8BeYRYPFsFIcta2R7FRf+foi0xzfFxKO48YP0w5Xaza/6NwC2Coks52AW+9n5n3D8DjWflURIIwwfOlsYE/8ITM9nQyHWQPqHDUur9bieysWMs8Zyz7V0LT7rjxwMVySK+ecqXW+CwRKDF48H+IijiqB7yZu81gUmC7Xe8cHBNonR9Nbmt89aB1/M9b2QdPzDhWsQNqqC84/miofnsNXkivXQR7cdLjRbxMJ3uTbZnUHIIAr8Zked2PV9L1TG1ZjBM8idKXrHWvp/9K9nUIlU3j0uKvuZecOOGGio/g/6PUoUl3Ua21Mkwiavq6yasR30btyuMp79BAu61MRWyuWCJErh/QlZ0SX/C++0sJBiE=
