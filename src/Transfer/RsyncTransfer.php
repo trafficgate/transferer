@@ -1685,7 +1685,7 @@ class RsyncTransfer extends Transfer
      * interrupted.   Since  a --link-dest run is copied into a new directory hierarchy (when it is used properly), using --ignore existing
      * will ensure that the already-handled files don’t get tweaked (which avoids a change in permissions on the hard-linked files).   This
      * does mean that this option is only looking at the existing files in the destination hierarchy itself.
-
+     *
      * @param bool $enable
      *
      * @return $this
