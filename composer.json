@@ -43,5 +43,6 @@
             ]
         }
     },
+    "config": {
     "minimum-stability": "stable"
 }
