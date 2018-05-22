@@ -2,9 +2,9 @@
 
 namespace Trafficgate\Transferer\Ssh;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class SshCommandTest extends PHPUnit_Framework_TestCase
+class SshCommandTest extends TestCase
 {
     public function testGetCommandString()
     {

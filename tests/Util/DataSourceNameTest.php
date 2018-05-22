@@ -2,9 +2,9 @@
 
 namespace Trafficgate\Transferer\Util;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class DataSourceNameTest extends PHPUnit_Framework_TestCase
+class DataSourceNameTest extends TestCase
 {
     public function testJoinNoUserNoHostNoPath()
     {

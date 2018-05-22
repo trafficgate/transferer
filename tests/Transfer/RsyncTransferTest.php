@@ -2,10 +2,10 @@
 
 namespace Trafficgate\Transferer\Transfer;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Trafficgate\Transferer\Exceptions\UnimplementedSwitchException;
 
-class RsyncTransferTest extends PHPUnit_Framework_TestCase
+class RsyncTransferTest extends TestCase
 {
     public function testConstruct()
     {
