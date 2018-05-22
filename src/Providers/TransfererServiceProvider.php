@@ -1,13 +1,13 @@
 <?php
 
-namespace Trafficgate\Providers;
+namespace Trafficgate\Transferer\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Trafficgate\Console\Commands\Rsync;
-use Trafficgate\Console\Commands\Scp;
-use Trafficgate\Daemon\RsyncDaemon;
-use Trafficgate\Transfer\RsyncTransfer;
-use Trafficgate\Transfer\ScpTransfer;
+use Trafficgate\Transferer\Console\Commands\Rsync;
+use Trafficgate\Transferer\Console\Commands\Scp;
+use Trafficgate\Transferer\Daemon\RsyncDaemon;
+use Trafficgate\Transferer\Transfer\RsyncTransfer;
+use Trafficgate\Transferer\Transfer\ScpTransfer;
 
 class TransfererServiceProvider extends ServiceProvider
 {

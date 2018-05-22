@@ -1,8 +1,8 @@
 <?php
 
-namespace Trafficgate\Transfer;
+namespace Trafficgate\Transferer\Transfer;
 
-use Trafficgate\Transfer;
+use Trafficgate\Transferer\Transfer;
 
 /**
  * Class ScpTransfer.

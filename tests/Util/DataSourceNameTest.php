@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafficgate\Util;
+namespace Trafficgate\Transferer\Util;
 
 use PHPUnit_Framework_TestCase;
 

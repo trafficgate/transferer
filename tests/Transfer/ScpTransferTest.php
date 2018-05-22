@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafficgate\Transfer;
+namespace Trafficgate\Transferer\Transfer;
 
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\Process\Exception\ProcessFailedException;

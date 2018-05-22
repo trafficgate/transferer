@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafficgate\Exceptions;
+namespace Trafficgate\Transferer\Exceptions;
 
 use Exception;
 

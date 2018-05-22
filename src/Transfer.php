@@ -1,10 +1,10 @@
 <?php
 
-namespace Trafficgate;
+namespace Trafficgate\Transferer;
 
 use LogicException;
 use Trafficgate\Shell\ShellCommand;
-use Trafficgate\Util\DataSourceName;
+use Trafficgate\Transferer\Util\DataSourceName;
 
 /**
  * Class Transfer.

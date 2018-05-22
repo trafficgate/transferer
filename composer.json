@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Trafficgate\\": "src/"
+            "Trafficgate\\Transferer\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Trafficgate\\": "tests/"
+            "Trafficgate\\Transferer\\": "tests/"
         }
     },
     "extra": {
@@ -39,7 +39,7 @@
         },
         "laravel": {
             "providers": [
-                "Trafficgate\\Providers\\TransfererServiceProvider"
+                "Trafficgate\\Transferer\\Providers\\TransfererServiceProvider"
             ]
         }
     },

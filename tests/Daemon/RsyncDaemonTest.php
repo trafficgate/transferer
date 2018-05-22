@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafficgate\Daemon;
+namespace Trafficgate\Transferer\Daemon;
 
 use PHPUnit_Framework_TestCase;
 
