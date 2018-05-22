@@ -58,26 +58,6 @@ class Scp extends Command
     }
 
     /**
-     * Get the SCP transfer command.
-     *
-     * @return ScpTransfer
-     */
-    protected function getScp()
-    {
-        return $this->scp;
-    }
-
-    /**
-     * Set the SCP transfer command.
-     *
-     * @param ScpTransfer $scp
-     */
-    protected function setScp(ScpTransfer $scp)
-    {
-        $this->scp = $scp;
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -141,6 +121,7 @@ class Scp extends Command
         foreach ($this->getScp()->transferMulti() as $result) {
             if ($result) {
                 $transferSucceeded = true;
+
                 break;
             }
 
@@ -150,5 +131,25 @@ class Scp extends Command
         if ($transferSucceeded) {
             $this->info('Transfer finished successfully.');
         }
+    }
+
+    /**
+     * Get the SCP transfer command.
+     *
+     * @return ScpTransfer
+     */
+    protected function getScp()
+    {
+        return $this->scp;
+    }
+
+    /**
+     * Set the SCP transfer command.
+     *
+     * @param ScpTransfer $scp
+     */
+    protected function setScp(ScpTransfer $scp)
+    {
+        $this->scp = $scp;
     }
 }

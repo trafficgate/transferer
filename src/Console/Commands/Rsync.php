@@ -167,26 +167,6 @@ class Rsync extends Command
     }
 
     /**
-     * Get the rsync transfer command.
-     *
-     * @return RsyncTransfer
-     */
-    protected function getRsync()
-    {
-        return $this->rsync;
-    }
-
-    /**
-     * Set the rsync transfer command.
-     *
-     * @param RsyncTransfer $rsync
-     */
-    protected function setRsync(RsyncTransfer $rsync)
-    {
-        $this->rsync = $rsync;
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -321,8 +301,8 @@ class Rsync extends Command
         $ipv4              = $this->option('ipv4');
         $ipv6              = $this->option('ipv6');
 
-        $source       = $this->argument('source');
-        $destination  = $this->argument('destination');
+        $source      = $this->argument('source');
+        $destination = $this->argument('destination');
 
         $sourceUser      = null;
         $sourceHost      = null;
@@ -467,6 +447,7 @@ class Rsync extends Command
         foreach ($this->getRsync()->transferMulti() as $result) {
             if ($result) {
                 $transferSucceeded = true;
+
                 break;
             }
 
@@ -476,5 +457,25 @@ class Rsync extends Command
         if ($transferSucceeded) {
             $this->info('Transfer finished successfully.');
         }
+    }
+
+    /**
+     * Get the rsync transfer command.
+     *
+     * @return RsyncTransfer
+     */
+    protected function getRsync()
+    {
+        return $this->rsync;
+    }
+
+    /**
+     * Set the rsync transfer command.
+     *
+     * @param RsyncTransfer $rsync
+     */
+    protected function setRsync(RsyncTransfer $rsync)
+    {
+        $this->rsync = $rsync;
     }
 }
