@@ -20,7 +20,7 @@
         "trafficgate/shell-command": "^1.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^1.12",
+        "friendsofphp/php-cs-fixer": "^2.11",
         "phpunit/phpunit": "^5.5"
     },
     "autoload": {
