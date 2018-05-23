@@ -22,7 +22,7 @@ Full documentation can be found in the RsyncTransfer class.
 ```php
 <?php
 
-use Trafficgate\Transfer\RsyncTransfer;
+use Trafficgate\Transferer\Transfer\RsyncTransfer;
 
 $rsync = new RsyncTransfer();
 $rsync
@@ -40,7 +40,7 @@ Full documentation can be found in the ScpTransfer class.
 ```php
 <?php
 
-use Trafficgate\Transfer\ScpTransfer;
+use Trafficgate\Transferer\Transfer\ScpTransfer;
 
 $scp = new ScpTransfer();
 $scp
@@ -88,7 +88,7 @@ The command has quiet mode enabled by default along with the following SSH optio
 ```php
 <?php
 
-use Trafficgate\Ssh\SshCommand;
+use Trafficgate\Transferer\Ssh\SshCommand;
 
 $ssh = new SshCommand();
 $ssh
