@@ -13,35 +13,41 @@
         }
     ],
     "require": {
-        "php": ">=5.6.4",
-        "illuminate/console": "~5.0.0|~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0",
-        "illuminate/support": "~5.0.0|~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0",
-        "symfony/process": "~2.8|~3.0",
-        "trafficgate/shell-command": "^1.0"
+        "php": "^7.0.0",
+        "illuminate/console": "5.4.*|5.5.*|5.6.*",
+        "illuminate/support": "5.4.*|5.5.*|5.6.*",
+        "trafficgate/shell-command": "~2.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^1.12",
-        "phpunit/phpunit": "^5.5"
+        "friendsofphp/php-cs-fixer": "~2.0",
+        "phpunit/phpunit": "~6.0",
+        "orchestra/testbench": "~3.0",
+        "symfony/process": "~3.0|~4.0"
     },
     "autoload": {
         "psr-4": {
-            "Trafficgate\\": "src/"
+            "Trafficgate\\Transferer\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Trafficgate\\": "tests/"
+            "Trafficgate\\Transferer\\": "tests/"
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.1.x-dev"
+            "dev-master": "4.0.x-dev"
         },
         "laravel": {
             "providers": [
-                "Trafficgate\\Providers\\TransfererServiceProvider"
+                "Trafficgate\\Transferer\\Providers\\TransfererServiceProvider"
             ]
         }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
     },
     "minimum-stability": "stable"
 }

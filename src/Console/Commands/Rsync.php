@@ -1,10 +1,10 @@
 <?php
 
-namespace Trafficgate\Console\Commands;
+namespace Trafficgate\Transferer\Console\Commands;
 
 use Illuminate\Console\Command;
-use Trafficgate\Transfer\RsyncTransfer;
-use Trafficgate\Util\DataSourceName;
+use Trafficgate\Transferer\Transfer\RsyncTransfer;
+use Trafficgate\Transferer\Util\DataSourceName;
 
 class Rsync extends Command
 {

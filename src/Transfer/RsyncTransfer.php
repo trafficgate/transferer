@@ -1,9 +1,9 @@
 <?php
 
-namespace Trafficgate\Transfer;
+namespace Trafficgate\Transferer\Transfer;
 
-use Trafficgate\Exceptions\UnimplementedSwitchException;
-use Trafficgate\Transfer;
+use Trafficgate\Transferer\Exceptions\UnimplementedSwitchException;
+use Trafficgate\Transferer\Transfer;
 
 class RsyncTransfer extends Transfer
 {

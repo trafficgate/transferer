@@ -1,10 +1,10 @@
 <?php
 
-namespace Trafficgate\Daemon;
+namespace Trafficgate\Transferer\Daemon;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class RsyncDaemonTest extends PHPUnit_Framework_TestCase
+class RsyncDaemonTest extends TestCase
 {
     public function testConstruct()
     {

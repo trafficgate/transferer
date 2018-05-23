@@ -1,6 +1,6 @@
 <?php
 
-namespace Trafficgate\Ssh;
+namespace Trafficgate\Transferer\Ssh;
 
 use Trafficgate\Shell\ShellCommand;
 

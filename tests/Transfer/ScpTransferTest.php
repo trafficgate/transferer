@@ -1,11 +1,11 @@
 <?php
 
-namespace Trafficgate\Transfer;
+namespace Trafficgate\Transferer\Transfer;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
-class ScpTransferTest extends PHPUnit_Framework_TestCase
+class ScpTransferTest extends TestCase
 {
     public function testConstruct()
     {

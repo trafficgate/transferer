@@ -1,8 +1,8 @@
 <?php
 
-namespace Trafficgate\Daemon;
+namespace Trafficgate\Transferer\Daemon;
 
-use Trafficgate\Transfer\RsyncTransfer;
+use Trafficgate\Transferer\Transfer\RsyncTransfer;
 
 class RsyncDaemon extends RsyncTransfer
 {
