@@ -16,7 +16,7 @@ use Trafficgate\Transferer\Util\DataSourceName;
 abstract class Transfer extends ShellCommand
 {
     /** The source for the transfer. */
-    const ARGUMENT_SOURCE      = 'source';
+    const ARGUMENT_SOURCE = 'source';
 
     /** The destination for the transfer. */
     const ARGUMENT_DESTINATION = 'destination';
