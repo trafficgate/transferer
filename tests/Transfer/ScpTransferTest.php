@@ -2,9 +2,8 @@
 
 namespace Trafficgate\Transferer\Transfer;
 
-use PackageVersions\Versions;
-use Trafficgate\Transferer\CommandTestCase;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Trafficgate\Transferer\CommandTestCase;
 
 class ScpTransferTest extends CommandTestCase
 {
