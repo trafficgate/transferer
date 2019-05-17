@@ -11,8 +11,9 @@ php:
   - nightly
 
 env:
-  - ILLUMINATE_VERSION=5.8.*
-  - PHPUNIT_VERSION=~7.0
+  global:
+    - ILLUMINATE_VERSION=5.8.*
+    - PHPUNIT_VERSION=~7.0
 
 matrix:
   allow_failures:
