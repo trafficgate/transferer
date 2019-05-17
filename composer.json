@@ -20,8 +20,9 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "~2.0",
-        "phpunit/phpunit": "~7.0",
+        "ocramius/package-versions": "^1.4",
         "orchestra/testbench": "~3.5",
+        "phpunit/phpunit": "~7.0",
         "symfony/process": "~3.0|~4.0"
     },
     "autoload": {
