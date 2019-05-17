@@ -2,7 +2,6 @@
 
 namespace Trafficgate\Transferer\Transfer;
 
-use PackageVersions\Versions;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Trafficgate\Transferer\CommandTestCase;
 
