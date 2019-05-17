@@ -97,11 +97,11 @@ Please document me.
 
 Please document me.
 
-[Unreleased]: https://github.com/trafficgate//compare/v4.0.0...HEAD
-[4.0.0]: https://github.com/trafficgate//compare/v3.1.6...v4.0.0
-[3.1.6]: https://github.com/trafficgate//compare/v3.1.5...v3.1.6
-[3.1.5]: https://github.com/trafficgate//compare/v3.1.4...v3.1.5
-[3.1.4]: https://github.com/trafficgate//compare/v3.1.3...v3.1.4
-[3.1.3]: https://github.com/trafficgate//compare/v3.1.2...v3.1.3
-[3.1.2]: https://github.com/trafficgate//releases/tag/v3.1.2
+[Unreleased]: https://github.com/trafficgate/transferer/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/trafficgate/transferer/compare/v3.1.6...v4.0.0
+[3.1.6]: https://github.com/trafficgate/transferer/compare/v3.1.5...v3.1.6
+[3.1.5]: https://github.com/trafficgate/transferer/compare/v3.1.4...v3.1.5
+[3.1.4]: https://github.com/trafficgate/transferer/compare/v3.1.3...v3.1.4
+[3.1.3]: https://github.com/trafficgate/transferer/compare/v3.1.2...v3.1.3
+[3.1.2]: https://github.com/trafficgate/transferer/releases/tag/v3.1.2
 
