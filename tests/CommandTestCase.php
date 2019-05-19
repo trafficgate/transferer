@@ -8,10 +8,7 @@ use PHPUnit\Framework\TestCase;
 class CommandTestCase extends TestCase
 {
     /**
-     * Symfony/process returns either '' or "" depending on version.
-     *
-     * Versions less than or equal to 3.4.X return ''.
-     * Versions greather than or equal to 4.0.0 return "".
+     * Empty quotes to use for symfony/process test comparators.
      *
      * @var string
      */
@@ -19,11 +16,28 @@ class CommandTestCase extends TestCase
 
     public function setUp()
     {
+        $this->determineEmptyQuotesForSymfonyProcess();
+    }
+
+    /**
+     * Symfony/process returns either '' or "" depending on version.
+     *
+     * Versions less than or equal to 3.4.X return ''.
+     * Versions greather than or equal to 4.0.0 return "".
+     */
+    private function determineEmptyQuotesForSymfonyProcess()
+    {
         $this->emptyQuotes = "''";
 
-        $symfonyProcessVersion = Versions::getVersion('symfony/process');
+        $symfonyProcessVersion = substr(
+            explode(
+                '@',
+                Versions::getVersion('symfony/process')
+            )[0],
+            1
+        );
 
-        if (preg_match('/^v4/', $symfonyProcessVersion)) {
+        if (version_compare('4.0.0', $symfonyProcessVersion, '<')) {
             $this->emptyQuotes = '""';
         }
     }
