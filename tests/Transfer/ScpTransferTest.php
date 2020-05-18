@@ -2,6 +2,7 @@
 
 namespace Trafficgate\Transferer\Transfer;
 
+use InvalidArgumentException;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Trafficgate\Transferer\CommandTestCase;
 
@@ -69,12 +70,11 @@ class ScpTransferTest extends CommandTestCase
         $this->assertEquals("'scp' {$this->emptyQuotes} {$this->emptyQuotes}", $scpTransfer->getCommandString());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Value can only be a string or numeric.
-     */
     public function testCipherException()
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Value can only be a string or numeric.');
+
         $scpTransfer = new ScpTransfer();
         $scpTransfer->cipher();
     }

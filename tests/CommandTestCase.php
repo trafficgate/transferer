@@ -14,7 +14,7 @@ class CommandTestCase extends TestCase
      */
     public $emptyQuotes;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->determineEmptyQuotesForSymfonyProcess();
     }
