@@ -8,11 +8,11 @@ php:
   - 7.1
   - 7.2
   - 7.3
-  - nightly
+  - 7.4
 
 env:
   global:
-    - ILLUMINATE_VERSION=5.8.*
+    - ILLUMINATE_VERSION=7.*
     - PHPUNIT_VERSION=~7.0
 
 matrix:
@@ -28,6 +28,8 @@ matrix:
       env: ILLUMINATE_VERSION=5.6.*
     - php: 7.1
       env: ILLUMINATE_VERSION=5.7.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.8.*
     - php: 7.2
       env:
         - ILLUMINATE_VERSION=5.5.*
@@ -36,6 +38,10 @@ matrix:
       env: ILLUMINATE_VERSION=5.6.*
     - php: 7.2
       env: ILLUMINATE_VERSION=5.7.*
+    - php: 7.2
+      env: ILLUMINATE_VERSION=5.8.*
+    - php: 7.2
+      env: ILLUMINATE_VERSION=6.*
     - php: 7.3
       env:
         - ILLUMINATE_VERSION=5.5.*
@@ -44,14 +50,22 @@ matrix:
       env: ILLUMINATE_VERSION=5.6.*
     - php: 7.3
       env: ILLUMINATE_VERSION=5.7.*
-    - php: nightly
+    - php: 7.3
+      env: ILLUMINATE_VERSION=5.8.*
+    - php: 7.3
+      env: ILLUMINATE_VERSION=6.*
+    - php: 7.4
       env:
         - ILLUMINATE_VERSION=5.5.*
         - PHPUNIT_VERSION=~6.0
-    - php: nightly
+    - php: 7.4
       env: ILLUMINATE_VERSION=5.6.*
-    - php: nightly
+    - php: 7.4
       env: ILLUMINATE_VERSION=5.7.*
+    - php: 7.4
+      env: ILLUMINATE_VERSION=5.8.*
+    - php: 7.4
+      env: ILLUMINATE_VERSION=6.*
 
 before_install:
   - ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
