@@ -20,10 +20,10 @@ class CommandTestCase extends TestCase
     }
 
     /**
-     * Symfony/process returns either '' or "" depending on version.
+     * Symfony/process returns either '' or "" depending on version for empty arguments.
      *
-     * Versions less than or equal to 3.4.X return ''.
-     * Versions greather than or equal to 4.0.0 return "".
+     * Versions less than or equal to 4.1.6 return ''.
+     * Versions greather than or equal to 4.1.7 return "".
      */
     private function determineEmptyQuotesForSymfonyProcess()
     {
@@ -37,7 +37,7 @@ class CommandTestCase extends TestCase
             1
         );
 
-        if (version_compare('4.0.0', $symfonyProcessVersion, '<')) {
+        if (version_compare('4.1.7', $symfonyProcessVersion, '<')) {
             $this->emptyQuotes = '""';
         }
     }
