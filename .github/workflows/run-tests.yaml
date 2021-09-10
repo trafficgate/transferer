@@ -14,35 +14,43 @@ jobs:
         composer: [v2]
         dependency-version: [prefer-lowest, prefer-stable]
         include:
-          - php: 7.1
+          - os: ubuntu-latest
+            php: 7.1
             laravel: 5.5.*
             composer: v1
             dependency-version: prefer-lowest
-          - php: 7.1
+          - os: ubuntu-latest
+            php: 7.1
             laravel: 5.5.*
             composer: v1
             dependency-version: prefer-stable
-          - php: 7.1
+          - os: ubuntu-latest
+            php: 7.1
             laravel: 5.6.*
             composer: v1
             dependency-version: prefer-lowest
-          - php: 7.1
+          - os: ubuntu-latest
+            php: 7.1
             laravel: 5.6.*
             composer: v1
             dependency-version: prefer-stable
-          - php: 7.1
+          - os: ubuntu-latest
+            php: 7.1
             laravel: 5.7.*
             composer: v1
             dependency-version: prefer-lowest
-          - php: 7.1
+          - os: ubuntu-latest
+            php: 7.1
             laravel: 5.7.*
             composer: v1
             dependency-version: prefer-stable
-          - php: 7.1
+          - os: ubuntu-latest
+            php: 7.1
             laravel: 5.8.*
             composer: v1
             dependency-version: prefer-lowest
-          - php: 7.1
+          - os: ubuntu-latest
+            php: 7.1
             laravel: 5.8.*
             composer: v1
             dependency-version: prefer-stable
