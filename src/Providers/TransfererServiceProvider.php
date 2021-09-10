@@ -11,7 +11,7 @@ use Trafficgate\Transferer\Transfer\ScpTransfer;
 
 class TransfererServiceProvider extends ServiceProvider
 {
-    const PACKAGE_NAME = 'transferer';
+    public const PACKAGE_NAME = 'transferer';
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -26,21 +26,15 @@ class TransfererServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('scp-transfer', function ($app) {
-            $scpTransfer = (new ScpTransfer())->setLogger($app['log']);
-
-            return $scpTransfer;
+            return (new ScpTransfer())->setLogger($app['log']);
         });
 
         $this->app->singleton('rsync-transfer', function ($app) {
-            $rsyncTransfer = (new RsyncTransfer())->setLogger($app['log']);
-
-            return $rsyncTransfer;
+            return (new RsyncTransfer())->setLogger($app['log']);
         });
 
         $this->app->singleton('rsync-daemon', function ($app) {
-            $rsyncTransfer = (new RsyncDaemon())->setLogger($app['log']);
-
-            return $rsyncTransfer;
+            return (new RsyncDaemon())->setLogger($app['log']);
         });
 
         $this->app->alias('scp-transfer', ScpTransfer::class);

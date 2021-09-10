@@ -157,9 +157,6 @@ class Rsync extends Command
      */
     protected $rsync;
 
-    /**
-     * @param RsyncTransfer $rsync
-     */
     public function __construct(RsyncTransfer $rsync)
     {
         parent::__construct();
@@ -309,8 +306,8 @@ class Rsync extends Command
         $destinationUser = null;
         $destinationHost = null;
 
-        list($sourceUser, $sourceHost, $source)                = DataSourceName::split($source);
-        list($destinationUser, $destinationHost, $destination) = DataSourceName::split($destination);
+        [$sourceUser, $sourceHost, $source]                = DataSourceName::split($source);
+        [$destinationUser, $destinationHost, $destination] = DataSourceName::split($destination);
 
         $this->getRsync()
             ->setCommandTimeout($commandTimeout)
@@ -471,8 +468,6 @@ class Rsync extends Command
 
     /**
      * Set the rsync transfer command.
-     *
-     * @param RsyncTransfer $rsync
      */
     protected function setRsync(RsyncTransfer $rsync)
     {

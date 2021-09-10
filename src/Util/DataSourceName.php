@@ -7,12 +7,12 @@ class DataSourceName
     /**
      * The delimiter between the username and the host.
      */
-    const USER_DELIMITER = '@';
+    public const USER_DELIMITER = '@';
 
     /**
      * The delimiter between the host and the file.
      */
-    const HOST_DELIMITER = ':';
+    public const HOST_DELIMITER = ':';
 
     /**
      * Create the string to connect for SCP file transfer.

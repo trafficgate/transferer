@@ -255,21 +255,21 @@ class ScpTransferTest extends CommandTestCase
     {
         $scpTransfer = new ScpTransfer();
         $scpTransfer->source('/path/to/source')
-                    ->destination('/path/to/destination');
+            ->destination('/path/to/destination');
         $this->assertEquals(
             "'scp' '/path/to/source' '/path/to/destination'",
             $scpTransfer->getCommandString()
         );
 
         $scpTransfer->source('/path/to/source', 'source')
-                    ->destination('/path/to/destination', 'destination');
+            ->destination('/path/to/destination', 'destination');
         $this->assertEquals(
             "'scp' 'source:/path/to/source' 'destination:/path/to/destination'",
             $scpTransfer->getCommandString()
         );
 
         $scpTransfer->source('/path/to/source', 'source', 'source')
-                    ->destination('/path/to/destination', 'destination', 'destination');
+            ->destination('/path/to/destination', 'destination', 'destination');
         $this->assertEquals(
             "'scp' 'source@source:/path/to/source' 'destination@destination:/path/to/destination'",
             $scpTransfer->getCommandString()
@@ -284,8 +284,8 @@ class ScpTransferTest extends CommandTestCase
 
         $scpTransfer = new ScpTransfer();
         $scpTransfer->source(__DIR__.'/source/test.txt')
-                    ->destination(__DIR__.'/destination/')
-                    ->transfer();
+            ->destination(__DIR__.'/destination/')
+            ->transfer();
 
         $this->assertFileExists(__DIR__.'/destination/test.txt');
         $this->assertFileEquals(__DIR__.'/source/test.txt', __DIR__.'/destination/test.txt');

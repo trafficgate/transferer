@@ -90,7 +90,7 @@ class DataSourceNameTest extends TestCase
     {
         $dsn = '';
 
-        list($user, $host, $path) = DataSourceName::split($dsn);
+        [$user, $host, $path] = DataSourceName::split($dsn);
         $this->assertEquals('', $user);
         $this->assertEquals('', $host);
         $this->assertEquals('', $path);
@@ -100,7 +100,7 @@ class DataSourceNameTest extends TestCase
     {
         $dsn = 'user@';
 
-        list($user, $host, $path) = DataSourceName::split($dsn);
+        [$user, $host, $path] = DataSourceName::split($dsn);
         $this->assertEquals('user', $user);
         $this->assertEquals('', $host);
         $this->assertEquals('', $path);
@@ -110,7 +110,7 @@ class DataSourceNameTest extends TestCase
     {
         $dsn = 'host:';
 
-        list($user, $host, $path) = DataSourceName::split($dsn);
+        [$user, $host, $path] = DataSourceName::split($dsn);
         $this->assertEquals('', $user);
         $this->assertEquals('host', $host);
         $this->assertEquals('', $path);
@@ -120,7 +120,7 @@ class DataSourceNameTest extends TestCase
     {
         $dsn = 'user@host:';
 
-        list($user, $host, $path) = DataSourceName::split($dsn);
+        [$user, $host, $path] = DataSourceName::split($dsn);
         $this->assertEquals('user', $user);
         $this->assertEquals('host', $host);
         $this->assertEquals('', $path);
@@ -130,7 +130,7 @@ class DataSourceNameTest extends TestCase
     {
         $dsn = 'path';
 
-        list($user, $host, $path) = DataSourceName::split($dsn);
+        [$user, $host, $path] = DataSourceName::split($dsn);
         $this->assertEquals('', $user);
         $this->assertEquals('', $host);
         $this->assertEquals('path', $path);
@@ -140,7 +140,7 @@ class DataSourceNameTest extends TestCase
     {
         $dsn = 'host:path';
 
-        list($user, $host, $path) = DataSourceName::split($dsn);
+        [$user, $host, $path] = DataSourceName::split($dsn);
         $this->assertEquals('', $user);
         $this->assertEquals('host', $host);
         $this->assertEquals('path', $path);
@@ -150,7 +150,7 @@ class DataSourceNameTest extends TestCase
     {
         $dsn = 'user@path';
 
-        list($user, $host, $path) = DataSourceName::split($dsn);
+        [$user, $host, $path] = DataSourceName::split($dsn);
         $this->assertEquals('user', $user);
         $this->assertEquals('', $host);
         $this->assertEquals('path', $path);
@@ -160,7 +160,7 @@ class DataSourceNameTest extends TestCase
     {
         $dsn = 'user@host:path';
 
-        list($user, $host, $path) = DataSourceName::split($dsn);
+        [$user, $host, $path] = DataSourceName::split($dsn);
         $this->assertEquals('user', $user);
         $this->assertEquals('host', $host);
         $this->assertEquals('path', $path);

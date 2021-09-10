@@ -48,9 +48,6 @@ class Scp extends Command
      */
     protected $scp;
 
-    /**
-     * @param ScpTransfer $scp
-     */
     public function __construct(ScpTransfer $scp)
     {
         parent::__construct();
@@ -91,8 +88,8 @@ class Scp extends Command
         $destinationUser = null;
         $destinationHost = null;
 
-        list($sourceUser, $sourceHost, $source)                = DataSourceName::split($source);
-        list($destinationUser, $destinationHost, $destination) = DataSourceName::split($destination);
+        [$sourceUser, $sourceHost, $source]                = DataSourceName::split($source);
+        [$destinationUser, $destinationHost, $destination] = DataSourceName::split($destination);
 
         $this->getScp()
             ->setCommandTimeout($commandTimeout)
@@ -145,8 +142,6 @@ class Scp extends Command
 
     /**
      * Set the SCP transfer command.
-     *
-     * @param ScpTransfer $scp
      */
     protected function setScp(ScpTransfer $scp)
     {
