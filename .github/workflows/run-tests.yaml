@@ -9,9 +9,23 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest]
-                php: [7.1, 7.2, 7.3, 7.4, 8.0]
+                php: [7.2, 7.3, 7.4, 8.0]
                 laravel: [5.5.*, 5.6.*, 5.7.*, 5.8.*, 6.*, 7.*, 8.*]
+                composer: [v2]
                 dependency-version: [prefer-lowest, prefer-stable]
+            include:
+                - php: 7.1
+                  laravel: 5.5.*
+                  composer: v1
+                - php: 7.1
+                  laravel: 5.6.*
+                  composer: v1
+                - php: 7.1
+                  laravel: 5.7.*
+                  composer: v1
+                - php: 7.1
+                  laravel: 5.8.*
+                  composer: v1
 
         name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
 
@@ -30,6 +44,7 @@ jobs:
                     php-version: ${{ matrix.php }}
                     extensions: curl, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, iconv
                     coverage: none
+                    tools: composer:${{ matrix.composer }}
 
             -   name: Install dependencies
                 run: |
