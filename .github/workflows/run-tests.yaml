@@ -1,0 +1,50 @@
+name: run-tests
+
+on: [push, pull_request]
+
+jobs:
+    tests:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest]
+                php: [7.1, 7.2, 7.3, 7.4, 8.0]
+                laravel: [5.5.*, 5.6.*, 5.7.*, 5.8.*, 6.*, 7.*, 8.*]
+                dependency-version: [prefer-lowest, prefer-stable]
+
+        name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v2
+
+            -   name: Install SQLite 3
+                run: |
+                    sudo apt-get update
+                    sudo apt-get install sqlite3
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    extensions: curl, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, iconv
+                    coverage: none
+
+            -   name: Install dependencies
+                run: |
+                    ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
+                    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+                    chmod 0600 ~/.ssh/{authorized_keys,id_rsa,id_rsa.pub}
+                    eval "$(ssh-agent -s)" #start the ssh agent
+                    ssh-add
+                    composer require "illuminate/console:${{ matrix.laravel }}" "illuminate/support:${{ matrix.laravel }}" --no-interaction --no-update
+                    composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+
+            -   name: Setup Problem Matches
+                run: |
+                    echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+                    echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+            -   name: Execute tests
+                run: vendor/bin/phpunit
