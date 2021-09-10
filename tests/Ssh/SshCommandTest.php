@@ -36,6 +36,11 @@ class SshCommandTest extends TestCase
             $output .= $buffer;
         });
 
+        $lastError = $sshCommmand->lastError();
+        if ($output === '' && $lastError instanceof Exception) {
+            $this->fail($lastError->getMessage());
+        }
+
         $this->assertEquals("Hello\n", $output);
     }
 }
