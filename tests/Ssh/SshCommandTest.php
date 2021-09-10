@@ -36,7 +36,7 @@ class SshCommandTest extends TestCase
             $output .= $buffer;
         });
 
-        $lastError = $sshCommmand->lastError();
+        $lastError = $sshCommand->lastError();
         if ($output === '' && $lastError instanceof Exception) {
             $this->fail($lastError->getMessage());
         }
