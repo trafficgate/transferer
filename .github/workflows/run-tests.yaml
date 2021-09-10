@@ -9,8 +9,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        php: [7.2, 7.3, 7.4, 8.0]
-        laravel: [5.5.*, 5.6.*, 5.7.*, 5.8.*, 6.*, 7.*, 8.*]
+        php: [7.4, 8.0]
+        laravel: [6.*, 7.*, 8.*]
         composer: [v2]
         dependency-version: [prefer-lowest, prefer-stable]
         include:
@@ -53,6 +53,136 @@ jobs:
             php: 7.1
             laravel: 5.8.*
             composer: v1
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 5.5.*
+            composer: v1
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 5.5.*
+            composer: v1
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 5.6.*
+            composer: v1
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 5.6.*
+            composer: v1
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 5.7.*
+            composer: v1
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 5.7.*
+            composer: v1
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 5.8.*
+            composer: v1
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 5.8.*
+            composer: v1
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 6.*
+            composer: v1
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 6.*
+            composer: v1
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 7.*
+            composer: v1
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.2
+            laravel: 7.*
+            composer: v1
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 5.5.*
+            composer: v2
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 5.5.*
+            composer: v2
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 5.6.*
+            composer: v2
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 5.6.*
+            composer: v2
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 5.7.*
+            composer: v2
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 5.7.*
+            composer: v2
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 5.8.*
+            composer: v2
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 5.8.*
+            composer: v2
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 6.*
+            composer: v2
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 6.*
+            composer: v2
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 7.*
+            composer: v2
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 7.*
+            composer: v2
+            dependency-version: prefer-stable
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 8.*
+            composer: v2
+            dependency-version: prefer-lowest
+          - os: ubuntu-latest
+            php: 7.3
+            laravel: 8.*
+            composer: v2
             dependency-version: prefer-stable
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
