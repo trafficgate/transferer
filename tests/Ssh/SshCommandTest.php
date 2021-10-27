@@ -14,12 +14,12 @@ class SshCommandTest extends TestCase
         $commandString = $sshCommand->getCommandString();
 
         $this->assertEquals(
-            "'ssh' ".
-            "'-q' ".
-            "'-o' 'BatchMode yes' ".
-            "'-o' 'StrictHostKeyChecking no' ".
-            "'-o' 'UserKnownHostsFile /dev/null' ".
-            "'127.0.0.1' ".
+            "'ssh' " .
+            "'-q' " .
+            "'-o' 'BatchMode yes' " .
+            "'-o' 'StrictHostKeyChecking no' " .
+            "'-o' 'UserKnownHostsFile /dev/null' " .
+            "'127.0.0.1' " .
             "'echo Hello'",
             $commandString
         );

@@ -7,9 +7,7 @@ use Trafficgate\Transferer\Transfer;
 
 class RsyncTransfer extends Transfer
 {
-    /**
-     * The command to execute in shell.
-     */
+    /** The command to execute in shell. */
     public const RSYNC_COMMAND = 'rsync';
 
     /** -v : increase verbosity */

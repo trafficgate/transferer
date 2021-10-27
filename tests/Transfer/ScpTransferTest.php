@@ -278,30 +278,30 @@ class ScpTransferTest extends CommandTestCase
 
     public function testTransfer()
     {
-        mkdir(__DIR__.'/source');
-        file_put_contents(__DIR__.'/source/test.txt', 'Hello World');
-        mkdir(__DIR__.'/destination');
+        mkdir(__DIR__ . '/source');
+        file_put_contents(__DIR__ . '/source/test.txt', 'Hello World');
+        mkdir(__DIR__ . '/destination');
 
         $scpTransfer = new ScpTransfer();
-        $scpTransfer->source(__DIR__.'/source/test.txt')
-            ->destination(__DIR__.'/destination/')
+        $scpTransfer->source(__DIR__ . '/source/test.txt')
+            ->destination(__DIR__ . '/destination/')
             ->transfer();
 
-        $this->assertFileExists(__DIR__.'/destination/test.txt');
-        $this->assertFileEquals(__DIR__.'/source/test.txt', __DIR__.'/destination/test.txt');
+        $this->assertFileExists(__DIR__ . '/destination/test.txt');
+        $this->assertFileEquals(__DIR__ . '/source/test.txt', __DIR__ . '/destination/test.txt');
 
-        unlink(__DIR__.'/destination/test.txt');
-        rmdir(__DIR__.'/destination');
+        unlink(__DIR__ . '/destination/test.txt');
+        rmdir(__DIR__ . '/destination');
 
-        unlink(__DIR__.'/source/test.txt');
-        rmdir(__DIR__.'/source');
+        unlink(__DIR__ . '/source/test.txt');
+        rmdir(__DIR__ . '/source');
     }
 
     public function testLastError()
     {
         $scpTransfer = new ScpTransfer();
-        $scpTransfer->source(__DIR__.'/does/not/exist')
-            ->destination(__DIR__.'/also/does/not/exist')
+        $scpTransfer->source(__DIR__ . '/does/not/exist')
+            ->destination(__DIR__ . '/also/does/not/exist')
             ->transfer();
         $this->assertInstanceOf(ProcessFailedException::class, $scpTransfer->lastError());
     }
