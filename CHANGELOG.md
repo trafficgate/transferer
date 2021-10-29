@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Support for Laravel versions to 5.7-5.8.
+- Support for Laravel versions to 5.7 ~ 8.x.
+- trafficgate/shell-command to v2.1+.
 
 ### Removed
 - Support for PHP < 7.1.3.
