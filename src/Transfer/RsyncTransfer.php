@@ -7,400 +7,398 @@ use Trafficgate\Transferer\Transfer;
 
 class RsyncTransfer extends Transfer
 {
-    /**
-     * The command to execute in shell.
-     */
-    const RSYNC_COMMAND = 'rsync';
+    /** The command to execute in shell. */
+    public const RSYNC_COMMAND = 'rsync';
 
     /** -v : increase verbosity */
-    const OPTION_VERBOSE = '--verbose : increase verbosity';
+    public const OPTION_VERBOSE = '--verbose : increase verbosity';
 
     /** fine-grained informational verbosity */
-    const OPTION_INFO = '--info= : fine-grained informational verbosity';
+    public const OPTION_INFO = '--info= : fine-grained informational verbosity';
 
     /** fine-grained debug verbosity */
-    const OPTION_DEBUG = '--debug= : fine-grained debug verbosity';
+    public const OPTION_DEBUG = '--debug= : fine-grained debug verbosity';
 
     /** special output handling for debugging */
-    const OPTION_MSGS2STDERR = '--msgs2stderr : special output handling for debugging';
+    public const OPTION_MSGS2STDERR = '--msgs2stderr : special output handling for debugging';
 
     /** -q : suppress non-error messages */
-    const OPTION_QUIET = '--quiet : suppress non-error messages';
+    public const OPTION_QUIET = '--quiet : suppress non-error messages';
 
     /** suppress daemon-mode MOTD (see caveat) */
-    const OPTION_NO_MOTD = '--no-motd : suppress daemon-mode MOTD (see caveat)';
+    public const OPTION_NO_MOTD = '--no-motd : suppress daemon-mode MOTD (see caveat)';
 
     /** -c : skip based on checksum, not mod-time & size */
-    const OPTION_CHECKSUM = '--checksum : skip based on checksum, not mod-time & size';
+    public const OPTION_CHECKSUM = '--checksum : skip based on checksum, not mod-time & size';
 
     /** -a : archive mode; equals -rlptgoD (no -H,-A,-X) */
-    const OPTION_ARCHIVE = '--archive : archive mode; equals -rlptgoD (no -H,-A,-X)';
+    public const OPTION_ARCHIVE = '--archive : archive mode; equals -rlptgoD (no -H,-A,-X)';
 
     /** turn off an implied OPTION (e.g. --no-D) */
-    const OPTION_NO_OPTION = '--no- : turn off an implied OPTION (e.g. --no-D)';
+    public const OPTION_NO_OPTION = '--no- : turn off an implied OPTION (e.g. --no-D)';
 
     /** -r : recurse into directories */
-    const OPTION_RECURSIVE = '--recursive : recurse into directories';
+    public const OPTION_RECURSIVE = '--recursive : recurse into directories';
 
     /** -R : use relative path names */
-    const OPTION_RELATIVE = '--relative : use relative path names';
+    public const OPTION_RELATIVE = '--relative : use relative path names';
 
     /** don’t send implied dirs with --relative */
-    const OPTION_NO_IMPLIED_DIRS = '--no-implied-dirs : don’t send implied dirs with --relative';
+    public const OPTION_NO_IMPLIED_DIRS = '--no-implied-dirs : don’t send implied dirs with --relative';
 
     /** -b : make backups (see --suffix & --backup-dir) */
-    const OPTION_BACKUP = '--backup : make backups (see --suffix & --backup-dir)';
+    public const OPTION_BACKUP = '--backup : make backups (see --suffix & --backup-dir)';
 
     /** make backups into hierarchy based in DIR */
-    const OPTION_BACKUP_DIR = '--backup-dir= : make backups into hierarchy based in DIR';
+    public const OPTION_BACKUP_DIR = '--backup-dir= : make backups into hierarchy based in DIR';
 
     /** backup suffix (default ~ w/o --backup-dir) */
-    const OPTION_SUFFIX = '--suffix= : backup suffix (default ~ w/o --backup-dir)';
+    public const OPTION_SUFFIX = '--suffix= : backup suffix (default ~ w/o --backup-dir)';
 
     /** -u : skip files that are newer on the receiver */
-    const OPTION_UPDATE = '--update : skip files that are newer on the receiver';
+    public const OPTION_UPDATE = '--update : skip files that are newer on the receiver';
 
     /** update destination files in-place */
-    const OPTION_INPLACE = '--inplace : update destination files in-place';
+    public const OPTION_INPLACE = '--inplace : update destination files in-place';
 
     /** append data onto shorter files */
-    const OPTION_APPEND = '--append : append data onto shorter files';
+    public const OPTION_APPEND = '--append : append data onto shorter files';
 
     /** --append w/old data in file checksum */
-    const OPTION_APPEND_VERIFY = '--append-verify : --append w/old data in file checksum';
+    public const OPTION_APPEND_VERIFY = '--append-verify : --append w/old data in file checksum';
 
     /** -d : transfer directories without recursing */
-    const OPTION_DIRS = '--dirs : transfer directories without recursing';
+    public const OPTION_DIRS = '--dirs : transfer directories without recursing';
 
     /** -l : copy symlinks as symlinks */
-    const OPTION_LINKS = '--links : copy symlinks as symlinks';
+    public const OPTION_LINKS = '--links : copy symlinks as symlinks';
 
     /** -L : transform symlink into referent file/dir */
-    const OPTION_COPY_LINKS = '--copy-links : transform symlink into referent file/dir';
+    public const OPTION_COPY_LINKS = '--copy-links : transform symlink into referent file/dir';
 
     /** only "unsafe" symlinks are transformed */
-    const OPTION_COPY_UNSAFE_LINKS = '--copy-unsafe-links : only "unsafe" symlinks are transformed';
+    public const OPTION_COPY_UNSAFE_LINKS = '--copy-unsafe-links : only "unsafe" symlinks are transformed';
 
     /** ignore symlinks that point outside the tree */
-    const OPTION_SAFE_LINKS = '--safe-links : ignore symlinks that point outside the tree';
+    public const OPTION_SAFE_LINKS = '--safe-links : ignore symlinks that point outside the tree';
 
     /** munge symlinks to make them safer */
-    const OPTION_MUNGE_LINKS = '--munge-links : munge symlinks to make them safer';
+    public const OPTION_MUNGE_LINKS = '--munge-links : munge symlinks to make them safer';
 
     /** -k : transform symlink to dir into referent dir */
-    const OPTION_COPY_DIRLINKS = '--copy-dirlinks : transform symlink to dir into referent dir';
+    public const OPTION_COPY_DIRLINKS = '--copy-dirlinks : transform symlink to dir into referent dir';
 
     /** -K : treat symlinked dir on receiver as dir */
-    const OPTION_KEEP_DIRLINKS = '--keep-dirlinks : treat symlinked dir on receiver as dir';
+    public const OPTION_KEEP_DIRLINKS = '--keep-dirlinks : treat symlinked dir on receiver as dir';
 
     /** -H : preserve hard links */
-    const OPTION_HARD_LINKS = '--hard-links : preserve hard links';
+    public const OPTION_HARD_LINKS = '--hard-links : preserve hard links';
 
     /** -p : preserve permissions */
-    const OPTION_PERMS = '--perms : preserve permissions';
+    public const OPTION_PERMS = '--perms : preserve permissions';
 
     /** -E : preserve executability */
-    const OPTION_EXECUTABILITY = '--executability : preserve executability';
+    public const OPTION_EXECUTABILITY = '--executability : preserve executability';
 
     /** affect file and/or directory permissions */
-    const OPTION_CHMOD = '--chmod=* : affect file and/or directory permissions';
+    public const OPTION_CHMOD = '--chmod=* : affect file and/or directory permissions';
 
     /** -A : preserve ACLs (implies -p) */
-    const OPTION_ACLS = '--acls : preserve ACLs (implies -p)';
+    public const OPTION_ACLS = '--acls : preserve ACLs (implies -p)';
 
     /** -X : preserve extended attributes */
-    const OPTION_XATTRS = '--xattrs : preserve extended attributes';
+    public const OPTION_XATTRS = '--xattrs : preserve extended attributes';
 
     /** -o : preserve owner (super-user only) */
-    const OPTION_OWNER = '--owner : preserve owner (super-user only)';
+    public const OPTION_OWNER = '--owner : preserve owner (super-user only)';
 
     /** -g : preserve group */
-    const OPTION_GROUP = '--group : preserve group';
+    public const OPTION_GROUP = '--group : preserve group';
 
     /** preserve device files (super-user only) */
-    const OPTION_DEVICES = '--devices : preserve device files (super-user only)';
+    public const OPTION_DEVICES = '--devices : preserve device files (super-user only)';
 
     /** preserve special files */
-    const OPTION_SPECIALS = '--specials : preserve special files';
+    public const OPTION_SPECIALS = '--specials : preserve special files';
 
     /** same as --devices --specials */
-    const OPTION_D = '-D : same as --devices --specials';
+    public const OPTION_D = '-D : same as --devices --specials';
 
     /** preserve modification times */
-    const OPTION_TIMES = '--times : preserve modification times';
+    public const OPTION_TIMES = '--times : preserve modification times';
 
     /** -O : omit directories from --times */
-    const OPTION_OMIT_DIR_TIMES = '--omit-dir-times : omit directories from --times';
+    public const OPTION_OMIT_DIR_TIMES = '--omit-dir-times : omit directories from --times';
 
     /** -J : omit symlinks from --times */
-    const OPTION_OMIT_LINK_TIMES = '--omit-link-times : omit symlinks from --times';
+    public const OPTION_OMIT_LINK_TIMES = '--omit-link-times : omit symlinks from --times';
 
     /** receiver attempts super-user activities */
-    const OPTION_SUPER = '--super : receiver attempts super-user activities';
+    public const OPTION_SUPER = '--super : receiver attempts super-user activities';
 
     /** store/recover privileged attrs using xattrs */
-    const OPTION_FAKE_SUPER = '--fake-super : store/recover privileged attrs using xattrs';
+    public const OPTION_FAKE_SUPER = '--fake-super : store/recover privileged attrs using xattrs';
 
     /** -S : handle sparse files efficiently */
-    const OPTION_SPARSE = '--sparse : handle sparse files efficiently';
+    public const OPTION_SPARSE = '--sparse : handle sparse files efficiently';
 
     /** drop cache continuously using fadvise */
-    const OPTION_DROP_CACHE = '--drop-cache : drop cache continuously using fadvise';
+    public const OPTION_DROP_CACHE = '--drop-cache : drop cache continuously using fadvise';
 
     /** allocate dest files before writing */
-    const OPTION_PREALLOCATE = '--preallocate : allocate dest files before writing';
+    public const OPTION_PREALLOCATE = '--preallocate : allocate dest files before writing';
 
     /** -n : perform a trial run with no changes made */
-    const OPTION_DRY_RUN = '--dry-run : perform a trial run with no changes made';
+    public const OPTION_DRY_RUN = '--dry-run : perform a trial run with no changes made';
 
     /** -W : copy files whole (w/o delta-xfer algorithm) */
-    const OPTION_WHOLE_FILE = '--whole-file : copy files whole (w/o delta-xfer algorithm)';
+    public const OPTION_WHOLE_FILE = '--whole-file : copy files whole (w/o delta-xfer algorithm)';
 
     /** -x : don't cross filesystem boundaries */
-    const OPTION_ONE_FILE_SYSTEM = '--one-file-system : don\'t cross filesystem boundaries';
+    public const OPTION_ONE_FILE_SYSTEM = '--one-file-system : don\'t cross filesystem boundaries';
 
     /** -B : force a fixed checksum block-size */
-    const OPTION_BLOCK_SIZE = '--block-size= : force a fixed checksum block-size';
+    public const OPTION_BLOCK_SIZE = '--block-size= : force a fixed checksum block-size';
 
     /** -e : specify the remote shell to use */
-    const OPTION_RSH = '--rsh= : specify the remote shell to use';
+    public const OPTION_RSH = '--rsh= : specify the remote shell to use';
 
     /** specify the rsync to run on remote machine */
-    const OPTION_RSYNC_PATH = '--rsync-path= : specify the rsync to run on remote machine';
+    public const OPTION_RSYNC_PATH = '--rsync-path= : specify the rsync to run on remote machine';
 
     /** skip creating new files on receiver */
-    const OPTION_EXISTING = '--existing : skip creating new files on receiver';
+    public const OPTION_EXISTING = '--existing : skip creating new files on receiver';
 
     /** skip creating new files on receiver */
-    const OPTION_IGNORE_NON_EXISTING = '--ignore-non-existing : skip creating new files on receiver';
+    public const OPTION_IGNORE_NON_EXISTING = '--ignore-non-existing : skip creating new files on receiver';
 
     /** skip updating files that exist on receiver */
-    const OPTION_IGNORE_EXISTING = '--ignore-existing : skip updating files that exist on receiver';
+    public const OPTION_IGNORE_EXISTING = '--ignore-existing : skip updating files that exist on receiver';
 
     /** sender removes synchronized files (non-dir) */
-    const OPTION_REMOVE_SOURCE_FILES = '--remove-source-files : sender removes synchronized files (non-dir)';
+    public const OPTION_REMOVE_SOURCE_FILES = '--remove-source-files : sender removes synchronized files (non-dir)';
 
     /** an alias for --delete-during */
-    const OPTION_DEL = '--del : an alias for --delete-during';
+    public const OPTION_DEL = '--del : an alias for --delete-during';
 
     /** delete extraneous files from dest dirs */
-    const OPTION_DELETE = '--delete : delete extraneous files from dest dirs';
+    public const OPTION_DELETE = '--delete : delete extraneous files from dest dirs';
 
     /** receiver deletes before xfer, not during */
-    const OPTION_DELETE_BEFORE = '--delete-before : receiver deletes before xfer, not during';
+    public const OPTION_DELETE_BEFORE = '--delete-before : receiver deletes before xfer, not during';
 
     /** receiver deletes during the transfer */
-    const OPTION_DELETE_DURING = '--delete-during : receiver deletes during the transfer';
+    public const OPTION_DELETE_DURING = '--delete-during : receiver deletes during the transfer';
 
     /** find deletions during, delete after */
-    const OPTION_DELETE_DELAY = '--delete-delay : find deletions during, delete after';
+    public const OPTION_DELETE_DELAY = '--delete-delay : find deletions during, delete after';
 
     /** receiver deletes after transfer, not during */
-    const OPTION_DELETE_AFTER = '--delete-after : receiver deletes after transfer, not during';
+    public const OPTION_DELETE_AFTER = '--delete-after : receiver deletes after transfer, not during';
 
     /** also delete excluded files from dest dirs */
-    const OPTION_DELETE_EXCLUDED = '--delete-excluded : also delete excluded files from dest dirs';
+    public const OPTION_DELETE_EXCLUDED = '--delete-excluded : also delete excluded files from dest dirs';
 
     /** ignore missing source args without error */
-    const OPTION_IGNORE_MISSING_ARGS = '--ignore-missing-args : ignore missing source args without error';
+    public const OPTION_IGNORE_MISSING_ARGS = '--ignore-missing-args : ignore missing source args without error';
 
     /** delete missing source args from destination */
-    const OPTION_DELETE_MISSING_ARGS = '--delete-missing-args : delete missing source args from destination';
+    public const OPTION_DELETE_MISSING_ARGS = '--delete-missing-args : delete missing source args from destination';
 
     /** delete even if there are I/O errors */
-    const OPTION_IGNORE_ERRORS = '--ignore-errors : delete even if there are I/O errors';
+    public const OPTION_IGNORE_ERRORS = '--ignore-errors : delete even if there are I/O errors';
 
     /** force deletion of dirs even if not empty */
-    const OPTION_FORCE = '--force : force deletion of dirs even if not empty';
+    public const OPTION_FORCE = '--force : force deletion of dirs even if not empty';
 
     /** don't delete more than NUM files */
-    const OPTION_MAX_DELETE = '--max-delete= : don\'t delete more than NUM files';
+    public const OPTION_MAX_DELETE = '--max-delete= : don\'t delete more than NUM files';
 
     /** don't transfer any file larger than SIZE */
-    const OPTION_MAX_SIZE = '--max-size= : don\'t transfer any file larger than SIZE';
+    public const OPTION_MAX_SIZE = '--max-size= : don\'t transfer any file larger than SIZE';
 
     /** don't transfer any file smaller than SIZE */
-    const OPTION_MIN_SIZE = '--min-size= : don\'t transfer any file smaller than SIZE';
+    public const OPTION_MIN_SIZE = '--min-size= : don\'t transfer any file smaller than SIZE';
 
     /** keep partially transferred files */
-    const OPTION_PARTIAL = '--partial : keep partially transferred files';
+    public const OPTION_PARTIAL = '--partial : keep partially transferred files';
 
     /** put a partially transferred file into DIR */
-    const OPTION_PARTIAL_DIR = '--partial-dir= : put a partially transferred file into DIR';
+    public const OPTION_PARTIAL_DIR = '--partial-dir= : put a partially transferred file into DIR';
 
     /** put all updated files into place at end */
-    const OPTION_DELAY_UPDATES = '--delay-updates : put all updated files into place at end';
+    public const OPTION_DELAY_UPDATES = '--delay-updates : put all updated files into place at end';
 
     /** -m : prune empty directory chains from file-list */
-    const OPTION_PRUNE_EMPTY_DIRS = '--prune-empty-dirs : prune empty directory chains from file-list';
+    public const OPTION_PRUNE_EMPTY_DIRS = '--prune-empty-dirs : prune empty directory chains from file-list';
 
     /** don't map uid/gid values by user/group name */
-    const OPTION_NUMERIC_IDS = '--numeric-ids : don\'t map uid/gid values by user/group name';
+    public const OPTION_NUMERIC_IDS = '--numeric-ids : don\'t map uid/gid values by user/group name';
 
     /** custom username mapping */
-    const OPTION_USERMAP = '--usermap= : custom username mapping';
+    public const OPTION_USERMAP = '--usermap= : custom username mapping';
 
     /** custom groupname mapping */
-    const OPTION_GROUPMAP = '--groupmap= : custom groupname mapping';
+    public const OPTION_GROUPMAP = '--groupmap= : custom groupname mapping';
 
     /** simple username/groupname mapping */
-    const OPTION_CHOWN = '--chown= : simple username/groupname mapping';
+    public const OPTION_CHOWN = '--chown= : simple username/groupname mapping';
 
     /** set I/O timeout in seconds */
-    const OPTION_TIMEOUT = '--timeout= : set I/O timeout in seconds';
+    public const OPTION_TIMEOUT = '--timeout= : set I/O timeout in seconds';
 
     /** set daemon connection timeout in seconds */
-    const OPTION_CONTIMEOUT = '--contimeout= : set daemon connection timeout in seconds';
+    public const OPTION_CONTIMEOUT = '--contimeout= : set daemon connection timeout in seconds';
 
     /** -I : don't skip files that match size and time */
-    const OPTION_IGNORE_TIMES = '--ignore-times : don\'t skip files that match size and time';
+    public const OPTION_IGNORE_TIMES = '--ignore-times : don\'t skip files that match size and time';
 
     /** skip files that match in size */
-    const OPTION_SIZE_ONLY = '--size-only : skip files that match in size';
+    public const OPTION_SIZE_ONLY = '--size-only : skip files that match in size';
 
     /** compare mod-times with reduced accuracy */
-    const OPTION_MODIFY_WINDOW = '--modify-window= : compare mod-times with reduced accuracy';
+    public const OPTION_MODIFY_WINDOW = '--modify-window= : compare mod-times with reduced accuracy';
 
     /** -T : create temporary files in directory DIR */
-    const OPTION_TEMP_DIR = '--temp-dir= : create temporary files in directory DIR';
+    public const OPTION_TEMP_DIR = '--temp-dir= : create temporary files in directory DIR';
 
     /** -y : find similar file for basis if no dest file */
-    const OPTION_FUZZY = '--fuzzy : find similar file for basis if no dest file';
+    public const OPTION_FUZZY = '--fuzzy : find similar file for basis if no dest file';
 
     /** also compare received files relative to DIR */
-    const OPTION_COMPARE_DEST = '--compare-dest= : also compare received files relative to DIR';
+    public const OPTION_COMPARE_DEST = '--compare-dest= : also compare received files relative to DIR';
 
     /** ... and include copies of unchanged files */
-    const OPTION_COPY_DEST = '--copy-dest= : ... and include copies of unchanged files';
+    public const OPTION_COPY_DEST = '--copy-dest= : ... and include copies of unchanged files';
 
     /** hardlink to files in DIR when unchanged */
-    const OPTION_LINK_DEST = '--link-dest= : hardlink to files in DIR when unchanged';
+    public const OPTION_LINK_DEST = '--link-dest= : hardlink to files in DIR when unchanged';
 
     /** -z : compress file data during the transfer */
-    const OPTION_COMPRESS = '--compress : compress file data during the transfer';
+    public const OPTION_COMPRESS = '--compress : compress file data during the transfer';
 
     /** explicitly set compression level */
-    const OPTION_COMPRESS_LEVEL = '--compress-level= : explicitly set compression level';
+    public const OPTION_COMPRESS_LEVEL = '--compress-level= : explicitly set compression level';
 
     /** skip compressing files with suffix in LIST */
-    const OPTION_SKIP_COMPRESS = '--skip-compress= : skip compressing files with suffix in LIST';
+    public const OPTION_SKIP_COMPRESS = '--skip-compress= : skip compressing files with suffix in LIST';
 
     /** -C : auto-ignore files in the same way CVS does */
-    const OPTION_CVS_EXCLUDE = '--cvs-exclude : auto-ignore files in the same way CVS does';
+    public const OPTION_CVS_EXCLUDE = '--cvs-exclude : auto-ignore files in the same way CVS does';
 
     /** -f : add a file-filtering RULE */
-    const OPTION_FILTER = '--filter=* : add a file-filtering RULE';
+    public const OPTION_FILTER = '--filter=* : add a file-filtering RULE';
 
     /**
      * same as --filter='dir-merge ./rsync-filter'
      * repeated: --filter='- .rsync-filter'.
      */
-    const OPTION_F = '-F : same as --filter=\'dir-merge ./rsync-filter\'';
+    public const OPTION_F = '-F : same as --filter=\'dir-merge ./rsync-filter\'';
 
     /** exclude files matching PATTERN */
-    const OPTION_EXCLUDE = '--exclude=* : exclude files matching PATTERN';
+    public const OPTION_EXCLUDE = '--exclude=* : exclude files matching PATTERN';
 
     /** read exclude file patterns from FILE */
-    const OPTION_EXCLUDE_FROM = '--exclude-from= : read exclude file patterns from FILE';
+    public const OPTION_EXCLUDE_FROM = '--exclude-from= : read exclude file patterns from FILE';
 
     /** don't exclude files matching PATTERN */
-    const OPTION_INCLUDE = '--include=* : don\'t exclude files matching PATTERN';
+    public const OPTION_INCLUDE = '--include=* : don\'t exclude files matching PATTERN';
 
     /** read include patterns from FILE */
-    const OPTION_INCLUDE_FROM = '--include-from= : read include patterns from FILE';
+    public const OPTION_INCLUDE_FROM = '--include-from= : read include patterns from FILE';
 
     /** read list of source-file names from FILE */
-    const OPTION_FILES_FROM = '--files-from= : read list of source-file names from FILE';
+    public const OPTION_FILES_FROM = '--files-from= : read list of source-file names from FILE';
 
     /** -0 : all *from/filter files are delimited by 0s */
-    const OPTION_FROM0 = '--from0 : all *from/filter files are delimited by 0s';
+    public const OPTION_FROM0 = '--from0 : all *from/filter files are delimited by 0s';
 
     /** -s : no space-splitting; wildcard chars allowed */
-    const OPTION_PROTECT_ARGS = '--protect-args : no space-splitting; wildcard chars allowed';
+    public const OPTION_PROTECT_ARGS = '--protect-args : no space-splitting; wildcard chars allowed';
 
     /** bind address for outgoing socket to daemon */
-    const OPTION_ADDRESS = '--address= : bind address for outgoing socket to daemon';
+    public const OPTION_ADDRESS = '--address= : bind address for outgoing socket to daemon';
 
     /** specify double-colon alternate port number */
-    const OPTION_PORT = '--port= : specify double-colon alternate port number';
+    public const OPTION_PORT = '--port= : specify double-colon alternate port number';
 
     /** specify custom TCP options */
-    const OPTION_SOCKOPTS = '--sockopts= : specify custom TCP options';
+    public const OPTION_SOCKOPTS = '--sockopts= : specify custom TCP options';
 
     /** use blocking I/O for the remote shell */
-    const OPTION_BLOCKING_IO = '--blocking-io : use blocking I/O for the remote shell';
+    public const OPTION_BLOCKING_IO = '--blocking-io : use blocking I/O for the remote shell';
 
     /** set out buffering to (N)one, (L)ine, or (B)lock */
-    const OPTION_OUTBUF = '--outbuf= : set out buffering to (N)one, (L)ine, or (B)lock';
+    public const OPTION_OUTBUF = '--outbuf= : set out buffering to (N)one, (L)ine, or (B)lock';
 
     /** give some file-transfer stats */
-    const OPTION_STATS = '--stats : give some file-transfer stats';
+    public const OPTION_STATS = '--stats : give some file-transfer stats';
 
     /** -8 : leave high-bit chars unescaped in output */
-    const OPTION_8_BIT_OUTPUT = '--8-bit-output : leave high-bit chars unescaped in output';
+    public const OPTION_8_BIT_OUTPUT = '--8-bit-output : leave high-bit chars unescaped in output';
 
     /** -h : output numbers in a human-readable format */
-    const OPTION_HUMAN_READABLE = '--human-readable : output numbers in a human-readable format';
+    public const OPTION_HUMAN_READABLE = '--human-readable : output numbers in a human-readable format';
 
     /** show progress during transfer */
-    const OPTION_PROGRESS = '--progress : show progress during transfer';
+    public const OPTION_PROGRESS = '--progress : show progress during transfer';
 
     /** same as --partial --progress */
-    const OPTION_P = '-P : same as --partial --progress';
+    public const OPTION_P = '-P : same as --partial --progress';
 
     /** -i: output a change-summary for all updates */
-    const OPTION_ITEMIZE_CHANGES = '--itemize-changes : output a change-summary for all updates';
+    public const OPTION_ITEMIZE_CHANGES = '--itemize-changes : output a change-summary for all updates';
 
     /** -M : send OPTION to the remote side only */
-    const OPTION_REMOTE_OPTION = '--remote-option= : send OPTION to the remote side only';
+    public const OPTION_REMOTE_OPTION = '--remote-option= : send OPTION to the remote side only';
 
     /** output updates using the specified FORMAT */
-    const OPTION_OUT_FORMAT = '--out-format= : output updates using the specified FORMAT';
+    public const OPTION_OUT_FORMAT = '--out-format= : output updates using the specified FORMAT';
 
     /** log what we're doing to the specified FILE */
-    const OPTION_LOG_FILE = '--log-file= : log what we\'re doing to the specified FILE';
+    public const OPTION_LOG_FILE = '--log-file= : log what we\'re doing to the specified FILE';
 
     /** log updates using the specified FMT */
-    const OPTION_LOG_FILE_FORMAT = '--log-file-format= : log updates using the specified FMT';
+    public const OPTION_LOG_FILE_FORMAT = '--log-file-format= : log updates using the specified FMT';
 
     /** read daemon-access password from FILE */
-    const OPTION_PASSWORD_FILE = '--password-file= : read daemon-access password from FILE';
+    public const OPTION_PASSWORD_FILE = '--password-file= : read daemon-access password from FILE';
 
     /** list the files instead of copying them */
-    const OPTION_LIST_ONLY = '--list-only : list the files instead of copying them';
+    public const OPTION_LIST_ONLY = '--list-only : list the files instead of copying them';
 
     /** limit socket I/O bandwidth */
-    const OPTION_BWLIMIT = '--bwlimit= : limit socket I/O bandwidth';
+    public const OPTION_BWLIMIT = '--bwlimit= : limit socket I/O bandwidth';
 
     /** write a batched update to FILE */
-    const OPTION_WRITE_BATCH = '--write-batch= : write a batched update to FILE';
+    public const OPTION_WRITE_BATCH = '--write-batch= : write a batched update to FILE';
 
     /** like --write-batch but w/o updating dest */
-    const OPTION_ONLY_WRITE_BATCH = '--only-write-batch=';
+    public const OPTION_ONLY_WRITE_BATCH = '--only-write-batch=';
 
     /** read a batched update from FILE */
-    const OPTION_READ_BATCH = '--read-batch= : read a batched update from FILE';
+    public const OPTION_READ_BATCH = '--read-batch= : read a batched update from FILE';
 
     /** force an older protocol version to be used */
-    const OPTION_PROTOCOL = '--protocol= : force an older protocol version to be used';
+    public const OPTION_PROTOCOL = '--protocol= : force an older protocol version to be used';
 
     /** request charset conversion of filenames */
-    const OPTION_ICONV = '--iconv= : request charset conversion of filenames';
+    public const OPTION_ICONV = '--iconv= : request charset conversion of filenames';
 
     /** set block/file checksum seed (advanced) */
-    const OPTION_CHECKSUM_SEED = '--checksum-seed= : set block/file checksum seed (advanced)';
+    public const OPTION_CHECKSUM_SEED = '--checksum-seed= : set block/file checksum seed (advanced)';
 
     /** -4 : prefer IPv4 */
-    const OPTION_IPV4 = '--ipv4 : prefer IPv4';
+    public const OPTION_IPV4 = '--ipv4 : prefer IPv4';
 
     /** -6 : prefer IPv6 */
-    const OPTION_IPV6 = '--ipv6 : prefer IPv6';
+    public const OPTION_IPV6 = '--ipv6 : prefer IPv6';
 
     /** print version number */
-    const OPTION_VERSION = '--version : print version number';
+    public const OPTION_VERSION = '--version : print version number';
 
     /** -h : show this help (see below for -h comment) */
-    const OPTION_HELP = '--help : show this help (see below for -h comment)';
+    public const OPTION_HELP = '--help : show this help (see below for -h comment)';
 
     /**
      * The rsync command.

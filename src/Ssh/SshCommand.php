@@ -21,20 +21,20 @@ use Trafficgate\Shell\ShellCommand;
 class SshCommand extends ShellCommand
 {
     /** @see quietMode() */
-    const OPTION_QUIET_MODE = '-q';
+    public const OPTION_QUIET_MODE = '-q';
 
     /** @see configOptions() */
-    const OPTION_CONFIG_OPTIONS = '-o=*';
+    public const OPTION_CONFIG_OPTIONS = '-o=*';
 
     /** @see host() */
-    const ARGUMENT_HOST = 'host';
+    public const ARGUMENT_HOST = 'host';
 
     /** @see remoteCommand() */
-    const ARGUMENT_COMMAND = 'command';
+    public const ARGUMENT_COMMAND = 'command';
 
     /** Default options */
-    const DEFAULT_QUIET_MODE     = true;
-    const DEFAULT_CONFIG_OPTIONS = [
+    public const DEFAULT_QUIET_MODE     = true;
+    public const DEFAULT_CONFIG_OPTIONS = [
         'BatchMode yes',
         'StrictHostKeyChecking no',
         'UserKnownHostsFile /dev/null',

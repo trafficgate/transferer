@@ -41,58 +41,58 @@ use Trafficgate\Transferer\Transfer;
 class ScpTransfer extends Transfer
 {
     /** The SCP command. */
-    const SCP_COMMAND = 'scp';
+    public const SCP_COMMAND = 'scp';
 
     /** @see protocol1() */
-    const OPTION_PROTOCOL1 = '-1';
+    public const OPTION_PROTOCOL1 = '-1';
 
     /** @see protocol2() */
-    const OPTION_PROTOCOL2 = '-2';
+    public const OPTION_PROTOCOL2 = '-2';
 
     /** @see ip4Only() */
-    const OPTION_IP4_ONLY = '-4';
+    public const OPTION_IP4_ONLY = '-4';
 
     /** @see ip6Only() */
-    const OPTION_IP6_ONLY = '-6';
+    public const OPTION_IP6_ONLY = '-6';
 
     /** @see batchMode() */
-    const OPTION_BATCH_MODE = '-B';
+    public const OPTION_BATCH_MODE = '-B';
 
     /** @see compression() */
-    const OPTION_COMPRESSION = '-C';
+    public const OPTION_COMPRESSION = '-C';
 
     /** @see cipher() */
-    const OPTION_CIPHER = '-c=';
+    public const OPTION_CIPHER = '-c=';
 
     /** @see sshConfig() */
-    const OPTION_SSH_CONFIG = '-F=';
+    public const OPTION_SSH_CONFIG = '-F=';
 
     /** @see identityFile() */
-    const OPTION_IDENTITY_FILE = '-i=';
+    public const OPTION_IDENTITY_FILE = '-i=';
 
     /** @see limit() */
-    const OPTION_LIMIT = '-l=';
+    public const OPTION_LIMIT = '-l=';
 
     /** @see sshOptions() */
-    const OPTION_SSH_OPTIONS = '-o=*';
+    public const OPTION_SSH_OPTIONS = '-o=*';
 
     /** @see port() */
-    const OPTION_PORT = '-P=';
+    public const OPTION_PORT = '-P=';
 
     /** @see preserveFile() */
-    const OPTION_PRESERVE_FILE = '-p';
+    public const OPTION_PRESERVE_FILE = '-p';
 
     /** @see quietMode() */
-    const OPTION_QUIET_MODE = '-q';
+    public const OPTION_QUIET_MODE = '-q';
 
     /** @see recursive() */
-    const OPTION_RECURSIVE = '-r';
+    public const OPTION_RECURSIVE = '-r';
 
     /** @see program() */
-    const OPTION_PROGRAM = '-S=';
+    public const OPTION_PROGRAM = '-S=';
 
     /** @see verbose() */
-    const OPTION_VERBOSE = '-v';
+    public const OPTION_VERBOSE = '-v';
 
     /**
      * The SCP command.

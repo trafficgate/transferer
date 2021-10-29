@@ -7,16 +7,16 @@ use Trafficgate\Transferer\Transfer\RsyncTransfer;
 class RsyncDaemon extends RsyncTransfer
 {
     /** run rsync in daemon mode */
-    const OPTION_DAEMON = '--daemon+ : run rsync in daemon mode';
+    public const OPTION_DAEMON = '--daemon+ : run rsync in daemon mode';
 
     /** specify alternate rsyncd.conf file */
-    const OPTION_CONFIG = '--config= : specify alternate rsyncd.conf file';
+    public const OPTION_CONFIG = '--config= : specify alternate rsyncd.conf file';
 
     /** -M : override global daemon config parameter */
-    const OPTION_DPARAM = '--dparam=* : override global daemon config parameter';
+    public const OPTION_DPARAM = '--dparam=* : override global daemon config parameter';
 
     /** do not detach from the file parent */
-    const OPTION_NO_DETACH = '--no-detach : do not detach from the file parent';
+    public const OPTION_NO_DETACH = '--no-detach : do not detach from the file parent';
 
     public function initialize()
     {

@@ -4,15 +4,11 @@ namespace Trafficgate\Transferer\Util;
 
 class DataSourceName
 {
-    /**
-     * The delimiter between the username and the host.
-     */
-    const USER_DELIMITER = '@';
+    /** The delimiter between the username and the host. */
+    public const USER_DELIMITER = '@';
 
-    /**
-     * The delimiter between the host and the file.
-     */
-    const HOST_DELIMITER = ':';
+    /** The delimiter between the host and the file. */
+    public const HOST_DELIMITER = ':';
 
     /**
      * Create the string to connect for SCP file transfer.
@@ -28,8 +24,8 @@ class DataSourceName
     public static function join($path, $host = null, $user = null)
     {
         $dsn = '';
-        $dsn .= isset($user, $host, $path) ? $user.static::USER_DELIMITER : '';
-        $dsn .= isset($host, $path) ? $host.static::HOST_DELIMITER : '';
+        $dsn .= isset($user, $host, $path) ? $user . static::USER_DELIMITER : '';
+        $dsn .= isset($host, $path) ? $host . static::HOST_DELIMITER : '';
         $dsn .= $path;
 
         return $dsn;
