@@ -38,6 +38,7 @@ class DataSourceName
      * Array will be user, host, path.
      *
      * @param $dsn
+     *
      * @returns array
      */
     public static function split($dsn)

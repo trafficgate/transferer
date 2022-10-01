@@ -726,9 +726,9 @@ class RsyncTransfer extends Transfer
      * @param bool $remove
      * @param bool $enable
      *
-     * @throws UnimplementedSwitchException
-     *
      * @return $this
+     *
+     * @throws UnimplementedSwitchException
      */
     public function noOption($option = null, $remove = false, $enable = true)
     {
@@ -3041,9 +3041,9 @@ class RsyncTransfer extends Transfer
      * @param bool $remove
      * @param bool $enable
      *
-     * @throws UnimplementedSwitchException
-     *
      * @return $this
+     *
+     * @throws UnimplementedSwitchException
      */
     public function remoteOption($option = null, $remove = false, $enable = true)
     {
