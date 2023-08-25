@@ -52,8 +52,9 @@ class RsyncDaemon extends RsyncTransfer
      * to  specify  a  specific  IP address (or hostname) to bind to.  This makes virtual hosting possible in conjunction with the --config
      * option.  See also the "address" global option in the rsyncd.conf manpage.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $address
      *
      * @return $this
      */
@@ -67,8 +68,9 @@ class RsyncDaemon extends RsyncTransfer
      * specify  a  smaller  --bwlimit  value,  but no larger value will be allowed.  See the client version of this option (above) for some
      * extra details.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $rate
      *
      * @return $this
      */
@@ -82,8 +84,9 @@ class RsyncDaemon extends RsyncTransfer
      * /etc/rsyncd.conf  unless  the  daemon is running over a remote shell program and the remote user is not the super-user; in that case
      * the default is rsyncd.conf in the current directory (typically $HOME).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -99,8 +102,9 @@ class RsyncDaemon extends RsyncTransfer
      *
      *     rsync --daemon -M pidfile=/path/rsync.pid
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $override
      *
      * @return $this
      */
@@ -128,8 +132,9 @@ class RsyncDaemon extends RsyncTransfer
      * This  specifies an alternate TCP port number for the daemon to listen on rather than the default of 873.  See also the "port" global
      * option in the rsyncd.conf manpage.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $port
      *
      * @return $this
      */
@@ -141,8 +146,9 @@ class RsyncDaemon extends RsyncTransfer
     /**
      * This option tells the rsync daemon to use the given log-file name instead of using the "log file" setting in the config file.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -155,8 +161,9 @@ class RsyncDaemon extends RsyncTransfer
      * This option tells the rsync daemon to use the given FORMAT string instead of using the "log format" setting in the config file.   It
      * also enables "transfer logging" unless the string is empty, in which case transfer logging is turned off.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $format
      *
      * @return $this
      */
@@ -168,8 +175,9 @@ class RsyncDaemon extends RsyncTransfer
     /**
      * This overrides the socket options setting in the rsyncd.conf file and has the same syntax.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $list
      *
      * @return $this
      */

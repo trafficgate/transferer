@@ -583,8 +583,9 @@ class RsyncTransfer extends Transfer
      * more  flags  needed  to  be  send to the server and the server was too old to understand them).  See also the "max verbosity" caveat
      * above when dealing with a daemon.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $flags
      *
      * @return $this
      */
@@ -609,8 +610,9 @@ class RsyncTransfer extends Transfer
      * more  flags  needed  to  be  send to the server and the server was too old to understand them).  See also the "max verbosity" caveat
      * above when dealing with a daemon.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $flags
      *
      * @return $this
      */
@@ -720,8 +722,9 @@ class RsyncTransfer extends Transfer
      * --no-r.   Note  also that the side-effects of the --files-from option are NOT positional, as it affects the default state of several
      * options and slightly changes the meaning of -a (see the --files-from option for more details).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $option
      *
      * @return $this
      *
@@ -855,8 +858,9 @@ class RsyncTransfer extends Transfer
      * to specify either an absolute path or a path that starts with "../".  If an rsync daemon is the receiver, the backup dir  cannot  go
      * outside the module’s path hierarchy, so take extra care not to delete it or copy into it.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $dir
      *
      * @return $this
      */
@@ -869,8 +873,9 @@ class RsyncTransfer extends Transfer
      * This  option  allows  you  to override the default backup suffix used with the --backup (-b) option. The default suffix is a ~ if no
      * --backup-dir was specified, otherwise it is an empty string.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $suffix
      *
      * @return $this
      */
@@ -1248,8 +1253,9 @@ class RsyncTransfer extends Transfer
      *
      * See the --perms and --executability options for how the resulting permission value can be applied to the files in the transfer.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $mode
      *
      * @return $this
      */
@@ -1571,8 +1577,9 @@ class RsyncTransfer extends Transfer
      * This  forces the block size used in rsync’s delta-transfer algorithm to a fixed value.  It is normally selected based on the size of
      * each file being updated.  See the technical report for details.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $blockSize
      *
      * @return $this
      */
@@ -1625,8 +1632,9 @@ class RsyncTransfer extends Transfer
      *
      * rsync -avR --rsync-path="cd /a/b && rsync" host:c/d /e/
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $program
      *
      * @return $this
      */
@@ -1903,8 +1911,9 @@ class RsyncTransfer extends Transfer
      * the less obvious --max-delete=-1 as a backward-compatible way to specify that no deletions be allowed (though  really  old  versions
      * didn’t warn when the limit was exceeded).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $num
      *
      * @return $this
      */
@@ -1929,8 +1938,9 @@ class RsyncTransfer extends Transfer
      *
      * Note that rsync versions prior to 3.1.0 did not allow --max-size=0.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $size
      *
      * @return $this
      */
@@ -1947,8 +1957,9 @@ class RsyncTransfer extends Transfer
      *
      * @see maxSize()
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $size
      *
      * @return $this
      */
@@ -2007,8 +2018,9 @@ class RsyncTransfer extends Transfer
      * of  the  --partial option can be used to disallow the overwriting of destination files with a partial transfer, while still allowing
      * the safer idiom provided by --partial-dir.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $dir
      *
      * @return $this
      */
@@ -2126,8 +2138,9 @@ class RsyncTransfer extends Transfer
      * running as a super-user (see also the --fake-super option).  For the --groupmap option to have any effect, the -g (--groups)  option
      * must be used (or implied), and the receiver will need to have permissions to set that group.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $string
      *
      * @return $this
      */
@@ -2139,8 +2152,9 @@ class RsyncTransfer extends Transfer
     /**
      * @see usermap()
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $string
      *
      * @return $this
      */
@@ -2156,8 +2170,9 @@ class RsyncTransfer extends Transfer
      * ing colon must be supplied.
      * If you specify "--chown=foo:bar, this is exactly the same as specifying "--usermap=*:foo --groupmap=*:bar", only easier.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $chown
      *
      * @return $this
      */
@@ -2170,8 +2185,9 @@ class RsyncTransfer extends Transfer
      * This option allows you to set a maximum I/O timeout in seconds. If no data is transferred for the specified  time  then  rsync  will
      * exit. The default is 0, which means no timeout.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $timeout
      *
      * @return $this
      */
@@ -2184,8 +2200,9 @@ class RsyncTransfer extends Transfer
      * This  option  allows  you  to  set the amount of time that rsync will wait for its connection to an rsync daemon to succeed.  If the
      * timeout is reached, rsync exits with an error.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $contimeout
      *
      * @return $this
      */
@@ -2227,8 +2244,9 @@ class RsyncTransfer extends Transfer
      * lar,  when  transferring  to or from an MS Windows FAT filesystem (which represents times with a 2-second resolution), --modify-win-
      * dow=1 is useful (allowing times to differ by up to 1 second).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $time
      *
      * @return $this
      */
@@ -2259,8 +2277,9 @@ class RsyncTransfer extends Transfer
      * staging  area  to bring over the copied file, and then rename it into place from there. (Specifying a --partial-dir with an absolute
      * path does not have this side-effect.)
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $dir
      *
      * @return $this
      */
@@ -2304,8 +2323,9 @@ class RsyncTransfer extends Transfer
      * NOTE:  beginning  with  version 3.1.0, rsync will remove a file from a non-empty destination hierarchy if an exact match is found in
      * one of the compare-dest hierarchies (making the end result more closely match a fresh copy).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $dir
      *
      * @return $this
      */
@@ -2327,8 +2347,9 @@ class RsyncTransfer extends Transfer
      * @see compareDest()
      * @see linkDest()
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $dir
      *
      * @return $this
      */
@@ -2368,8 +2389,9 @@ class RsyncTransfer extends Transfer
      * @see compareDest()
      * @see copyDest()
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $dir
      *
      * @return $this
      */
@@ -2410,8 +2432,9 @@ class RsyncTransfer extends Transfer
      * Explicitly set the compression level to use (see --compress) instead of letting it default.  If  NUM  is  non-zero,  the  --compress
      * option is implied.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $num
      *
      * @return $this
      */
@@ -2442,8 +2465,9 @@ class RsyncTransfer extends Transfer
      * This  list  will be replaced by your --skip-compress list in all but one situation: a copy from a daemon rsync will add your skipped
      * suffixes to its list of non-compressing files (and its list may be configured to a different default).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $list
      *
      * @return $this
      */
@@ -2494,8 +2518,9 @@ class RsyncTransfer extends Transfer
      *
      * See the FILTER RULES section for detailed information on this option.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $rule
      *
      * @return $this
      */
@@ -2533,8 +2558,9 @@ class RsyncTransfer extends Transfer
      *
      * See the FILTER RULES section for detailed information on this option.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $pattern
      *
      * @return $this
      */
@@ -2547,8 +2573,9 @@ class RsyncTransfer extends Transfer
      * This option is related to the --exclude option, but it specifies a FILE that contains exclude patterns (one per line).  Blank  lines
      * in the file and lines starting with ’;’ or ’#’ are ignored.  If FILE is -, the list will be read from standard input.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -2563,8 +2590,9 @@ class RsyncTransfer extends Transfer
      *
      * See the FILTER RULES section for detailed information on this option.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $pattern
      *
      * @return $this
      */
@@ -2577,8 +2605,9 @@ class RsyncTransfer extends Transfer
      * This option is related to the --include option, but it specifies a FILE that contains include patterns (one per line).  Blank  lines
      * in the file and lines starting with ’;’ or ’#’ are ignored.  If FILE is -, the list will be read from standard input.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -2630,8 +2659,9 @@ class RsyncTransfer extends Transfer
      * elements that are shared between adjacent entries.  If the input is not sorted, some path elements (implied directories) may end  up
      * being scanned multiple times, and rsync will eventually unduplicate them after they get turned into file-list elements.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -2684,8 +2714,9 @@ class RsyncTransfer extends Transfer
      * By default rsync will bind to the wildcard address when connecting to an rsync daemon.  The --address option allows you to specify a
      * specific IP address (or hostname) to bind to.  See also this option in the --daemon mode section.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $address
      *
      * @return $this
      */
@@ -2699,8 +2730,9 @@ class RsyncTransfer extends Transfer
      * ble-colon (::) syntax to connect with an rsync daemon (since the URL syntax has a way to specify the port as a  part  of  the  URL).
      * See also this option in the --daemon mode section.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $port
      *
      * @return $this
      */
@@ -2715,8 +2747,9 @@ class RsyncTransfer extends Transfer
      * options  you  may  be  able  to  set. By default no special socket options are set. This only affects direct socket connections to a
      * remote rsync daemon.  This option also exists in the --daemon mode section.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $list
      *
      * @return $this
      */
@@ -2744,8 +2777,9 @@ class RsyncTransfer extends Transfer
      *
      * The main use of this option is to change Full buffering to Line buffering when rsync’s output is going to a file or pipe.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $mode
      *
      * @return $this
      */
@@ -3003,8 +3037,9 @@ class RsyncTransfer extends Transfer
      * in  it next to a short option letter (e.g. -M--log-file=/tmp/foo.  If this bug affects your version of popt, you can use the version
      * of popt that is included with rsync.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $option
      *
      * @return $this
      *
@@ -3034,8 +3069,9 @@ class RsyncTransfer extends Transfer
      *
      * @see itemizeChanges()
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $format
      *
      * @return $this
      */
@@ -3055,8 +3091,9 @@ class RsyncTransfer extends Transfer
      *
      * This is very useful if you need to debug why a connection is closing unexpectedly.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -3072,8 +3109,9 @@ class RsyncTransfer extends Transfer
      *
      * The default FORMAT used if --log-file is specified and this option is not is ’%i %n%L’.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $format
      *
      * @return $this
      */
@@ -3091,8 +3129,9 @@ class RsyncTransfer extends Transfer
      * documentation.  When accessing an rsync daemon using a remote shell as the transport, this option only comes into effect  after  the
      * remote shell finishes its authentication (i.e. if you have also specified a password in the daemon’s config file).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -3146,8 +3185,9 @@ class RsyncTransfer extends Transfer
      * This is because some files can show up as being rapidly sent when the data is quickly buffered, while other can show up as very slow
      * when the flushing of the output buffer occurs.  This may be fixed in a future version.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $rate
      *
      * @return $this
      */
@@ -3160,8 +3200,9 @@ class RsyncTransfer extends Transfer
      * Record  a  file  that  can  later  be  applied  to another identical destination with --read-batch. See the "BATCH MODE" section for
      * details, and also the --only-write-batch option.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -3182,8 +3223,9 @@ class RsyncTransfer extends Transfer
      * from the sender into the batch file without having to flow over the wire to the receiver (when pulling, the sender  is  remote,  and
      * thus can’t write the batch).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -3196,8 +3238,9 @@ class RsyncTransfer extends Transfer
      * Apply  all  of  the changes stored in FILE, a file previously generated by --write-batch.  If FILE is -, the batch data will be read
      * from standard input.  See the "BATCH MODE" section for details.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $file
      *
      * @return $this
      */
@@ -3212,8 +3255,9 @@ class RsyncTransfer extends Transfer
      * --read-batch option, you should use "--protocol=28" when creating the batch file to force the older protocol version to be  used  in
      * the batch file (assuming you can’t upgrade the rsync on the reading system).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $num
      *
      * @return $this
      */
@@ -3243,8 +3287,9 @@ class RsyncTransfer extends Transfer
      * tion parameter regardless of the remote charset you actually pass.  Thus, you may feel free to specify just the local charset for  a
      * daemon transfer (e.g. --iconv=utf8).
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $convertSpec
      *
      * @return $this
      */
@@ -3260,8 +3305,9 @@ class RsyncTransfer extends Transfer
      * checksums, or in the case where the user wants a more random checksum seed.  Setting NUM to 0 causes rsync to  use  the  default  of
      * time() for checksum seed.
      *
-     * @param bool $remove
-     * @param bool $enable
+     * @param bool       $remove
+     * @param bool       $enable
+     * @param mixed|null $num
      *
      * @return $this
      */

@@ -15,6 +15,10 @@ class DataSourceName
      *
      * String should be in the format [[user@][host:]path.
      *
+     * @param mixed      $path
+     * @param mixed|null $host
+     * @param mixed|null $user
+     *
      * @return string
      */
     public static function join($path, $host = null, $user = null)
@@ -34,6 +38,8 @@ class DataSourceName
      * Array will be user, host, path.
      *
      * @returns array
+     *
+     * @param mixed $dsn
      */
     public static function split($dsn)
     {
