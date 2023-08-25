@@ -15,10 +15,6 @@ class DataSourceName
      *
      * String should be in the format [[user@][host:]path.
      *
-     * @param $path
-     * @param null $host
-     * @param null $user
-     *
      * @return string
      */
     public static function join($path, $host = null, $user = null)
@@ -36,8 +32,6 @@ class DataSourceName
      *
      * String should be in the format [[user@]host:]path.
      * Array will be user, host, path.
-     *
-     * @param $dsn
      *
      * @returns array
      */
