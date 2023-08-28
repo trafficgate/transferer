@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.1.0] - 2022-08-28
+
+### Changed
+- Support for Laravel to version 9.x.
+- trafficgate/shell-command to v3.0.
+
 ## [5.0.0] - 2021-10-29
 
 ### Changed
@@ -100,7 +106,8 @@ Please document me.
 
 Please document me.
 
-[Unreleased]: https://github.com/trafficgate/transferer/compare/v5.0.0...HEAD
+[Unreleased]: https://github.com/trafficgate/transferer/compare/v5.1.0...HEAD
+[5.1.0]: https://github.com/trafficgate/transferer/compare/v5.0.0...v5.1.0
 [5.0.0]: https://github.com/trafficgate/transferer/compare/v4.0.0...v5.0.0
 [4.0.0]: https://github.com/trafficgate/transferer/compare/v3.1.6...v4.0.0
 [3.1.6]: https://github.com/trafficgate/transferer/compare/v3.1.5...v3.1.6
