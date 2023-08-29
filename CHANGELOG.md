@@ -1,4 +1,5 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -6,13 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.0.0] - 2022-08-29
+
+### Added
+
+- Support for Laravel 9.x and 10.x.
+
+### Changed
+
+- trafficgate/shell-command to v3.0.
+
+## Removed
+
+- Support for Laravel < 7.x.
+- Support for PHP < 8.0.
+
 ## [5.0.0] - 2021-10-29
 
 ### Changed
+
 - Support for Laravel to versions 5.5 ~ 8.x.
 - trafficgate/shell-command to v2.1+.
 
 ### Removed
+
 - Support for PHP < 7.1.3.
 - Support for Laravel version 5.4.
 
@@ -39,9 +57,11 @@ Please document me.
 ## [3.1.2] - 2016-10-04
 
 ### Changed
+
 - Moved repository to GitHub.
 
 ### Removed
+
 - Internal company code.
 
 ## 3.1.1 - 2016-09-14
@@ -100,7 +120,8 @@ Please document me.
 
 Please document me.
 
-[Unreleased]: https://github.com/trafficgate/transferer/compare/v5.0.0...HEAD
+[Unreleased]: https://github.com/trafficgate/transferer/compare/v6.0.0...HEAD
+[6.0.0]: https://github.com/trafficgate/transferer/compare/v5.0.0...v6.0.0
 [5.0.0]: https://github.com/trafficgate/transferer/compare/v4.0.0...v5.0.0
 [4.0.0]: https://github.com/trafficgate/transferer/compare/v3.1.6...v4.0.0
 [3.1.6]: https://github.com/trafficgate/transferer/compare/v3.1.5...v3.1.6

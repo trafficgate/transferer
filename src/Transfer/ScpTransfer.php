@@ -220,9 +220,9 @@ class ScpTransfer extends Transfer
      *
      * This option is directly passed to ssh(1).
      *
-     * @param null $value
-     * @param bool $remove
-     * @param bool $enabled
+     * @param bool       $remove
+     * @param bool       $enabled
+     * @param mixed|null $value
      *
      * @return $this
      */
@@ -236,9 +236,9 @@ class ScpTransfer extends Transfer
      *
      * This option is directly passed to ssh(1).
      *
-     * @param null $value
-     * @param bool $remove
-     * @param bool $enabled
+     * @param bool       $remove
+     * @param bool       $enabled
+     * @param mixed|null $value
      *
      * @return $this
      */
@@ -253,9 +253,9 @@ class ScpTransfer extends Transfer
      *
      * This option is directly passed to ssh(1).
      *
-     * @param null $value
-     * @param bool $remove
-     * @param bool $enabled
+     * @param bool       $remove
+     * @param bool       $enabled
+     * @param mixed|null $value
      *
      * @return $this
      */
@@ -267,9 +267,9 @@ class ScpTransfer extends Transfer
     /**
      * Limits the used bandwidth, specified in Kbit/s.
      *
-     * @param null $value
-     * @param bool $remove
-     * @param bool $enabled
+     * @param bool       $remove
+     * @param bool       $enabled
+     * @param mixed|null $value
      *
      * @return $this
      */
@@ -352,9 +352,9 @@ class ScpTransfer extends Transfer
      * because -p is already reserved for preserving the
      * times and modes of the file in rcp(1).
      *
-     * @param null $value
-     * @param bool $remove
-     * @param bool $enabled
+     * @param bool       $remove
+     * @param bool       $enabled
+     * @param mixed|null $value
      *
      * @return $this
      */
@@ -408,9 +408,9 @@ class ScpTransfer extends Transfer
      *
      * The program must understand ssh(1) arguments.
      *
-     * @param null $value
-     * @param bool $remove
-     * @param bool $enabled
+     * @param bool       $remove
+     * @param bool       $enabled
+     * @param mixed|null $value
      *
      * @return $this
      */
