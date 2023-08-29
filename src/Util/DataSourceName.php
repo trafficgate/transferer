@@ -37,9 +37,9 @@ class DataSourceName
      * String should be in the format [[user@]host:]path.
      * Array will be user, host, path.
      *
-     * @returns array
-     *
      * @param mixed $dsn
+     *
+     * @return array
      */
     public static function split($dsn)
     {
