@@ -8,10 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [6.0.0] - 2022-08-29
 
+### Added
+
+- Support for Laravel 9.x.
+
 ### Changed
 
-- Support for Laravel to version 9.x.
 - trafficgate/shell-command to v3.0.
+
+## Removed
+
+- Support for Laravel < 8.x.
 
 ## [5.0.0] - 2021-10-29
 
