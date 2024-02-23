@@ -56,9 +56,7 @@ class TransfererServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
-    {
-    }
+    public function boot() {}
 
     /**
      * Get the services provided by the provider.
