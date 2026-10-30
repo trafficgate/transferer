@@ -84,7 +84,7 @@ abstract class Transfer extends ShellCommand
      *
      * Syntactical sugar for runOnce().
      *
-     * @see \Trafficgate\Shell\ShellCommand::runOnce()
+     * @see ShellCommand::runOnce()
      *
      * @param int|null $idleTimeout
      *
@@ -101,7 +101,7 @@ abstract class Transfer extends ShellCommand
      *
      * Syntactical sugar for runMulti().
      *
-     * @see \Trafficgate\Shell\ShellCommand::runMulti()
+     * @see ShellCommand::runMulti()
      *
      * @param int|null $idleTimeout
      *
