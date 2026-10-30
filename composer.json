@@ -48,7 +48,32 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "policy": {
+            "advisories": {
+                "ignore-id": {
+                    "PKSA-28rh-rzzn-djk4": "symfony/mailer: Argument Injection in SendmailTransport via Dash-Prefixed Recipient Address (CVE-2026-45068, medium). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-2n2k-66v2-bwg3": "symfony/mime: Email Header / SMTP Command Injection via CRLF in Symfony\\Component\\Mime\\Address (CVE-2026-45067, high). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-365x-2zjk-pt47": "symfony/http-foundation: Incorrect parsing of PATH_INFO can lead to limited authorization bypass (CVE-2025-64500, high). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-3r5d-mb8f-1qw9": "laravel/framework: Laravel Framework: CRLF injection in default email rule  (no CVE listed, high). Laravel 8, 9 and 10 are EOL and have no patched release; fixed only in Laravel 12.x and 13.x. Needed so the Laravel 8, 9 and 10 matrix cells can resolve in CI.",
+                    "PKSA-8qx3-n5y5-vvnd": "laravel/framework: Laravel has a File Validation Bypass (CVE-2025-27515, medium). Fixed in 10.48.29, 11.44.1 and 12.1.1, but Laravel 8 and 9 are EOL and never got a fix, so every 8.x and 9.x release is affected. Needed so the Laravel 8, 9 and 10 matrix cells can resolve in CI.",
+                    "PKSA-b14r-zh1d-vdrc": "symfony/yaml: YAML Parser Stack Exhaustion via Unbounded Recursion in Nested Blocks, Sequences, and Mappings (CVE-2026-45133, low). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-b35n-565h-rs4q": "symfony/http-foundation: Open redirect via browser-sanitized URLs (CVE-2024-50345, low). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-b41t-wbzk-9q51": "laravel/framework: Laravel TokenGuard authentication bypass through non-string API credentials (CVE-2026-114509, critical). Laravel 8, 9 and 10 are EOL and have no patched release; fixed only in Laravel 12.x and 13.x. Needed so the Laravel 8, 9 and 10 matrix cells can resolve in CI.",
+                    "PKSA-bf7t-jnpz-492k": "symfony/routing: UrlGenerator Dot-Segment Encoding Skips Every Other Chained `../` or `./` -> Generated URL Collapses Off-Route Under RFC 3986 Normalization (CVE-2026-48784, medium). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-d5tc-s1qs-h781": "laravel/framework: Laravel: XSS in Debug Page Information (CVE-2026-102279, low). Laravel 8, 9 and 10 are EOL and have no patched release; fixed only in Laravel 12.x and 13.x. Needed so the Laravel 8, 9 and 10 matrix cells can resolve in CI.",
+                    "PKSA-ft77-7h5f-p3r6": "symfony/yaml: YAML Parser ReDoS via Catastrophic Backtracking in Parser::cleanup() Regex (CVE-2026-45305, low). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-m5cs-t1y6-qpcs": "laravel/framework: Laravel Framework: Temporary Signed URL Path Confusion (no CVE listed, medium). Laravel 8, 9 and 10 are EOL and have no patched release; fixed only in Laravel 12.x and 13.x. Needed so the Laravel 8, 9 and 10 matrix cells can resolve in CI.",
+                    "PKSA-mdq4-51ck-6kdq": "laravel/framework: Laravel CRLF injection in default email rule (CVE-2026-48019). Laravel 8, 9 and 10 are EOL and have no patched release; fixed only in Laravel 12.x and 13.x. Needed so the Laravel 8, 9 and 10 matrix cells can resolve in CI.",
+                    "PKSA-v5yj-8nmz-sk2q": "symfony/yaml: YAML Parser Exponential Memory Allocation via Recursive Collection-Alias Expansion (\"Billion Laughs\") (CVE-2026-45304, low). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-w9tt-7782-78jx": "league/flysystem: Flysystem: WhitespacePathNormalizer's control-character (CorruptedPathDetected) check is bypassed by malformed UTF-8 in the path, affecting every adapter (CVE-2026-102601, low). Laravel 8 requires league/flysystem ^1.1, which is EOL with no patched 1.x release. Needed so the Laravel 8 matrix cells can resolve in CI.",
+                    "PKSA-wtxr-p26d-nn42": "symfony/mime: Email Header Injection via Non-Token Characters in Mime Parameter Names (CVE-2026-45070, medium). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-wws7-mr54-jsny": "symfony/process: Command execution hijack on Windows with Process class (CVE-2024-51736, high). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-xz3r-9gp4-4m1z": "symfony/yaml: Unbounded Recursion in the YAML Inline Lexer Lets a Single Document Crash the Process (CVE-2026-109413, high). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases.",
+                    "PKSA-yc7t-91v9-99xs": "symfony/routing: UrlGenerator Route-Requirement Bypass via Unanchored Regex Alternation -> Off-Site //host URL Injection (CVE-2026-45065, medium). Needed only by the PHP 8.0 cells: Laravel 9 requires symfony/* ^6.0 and the fixed 6.4.x releases need PHP 8.1 or newer, so PHP 8.0 can only install affected 6.0 to 6.3 releases."
+                }
+            }
+        }
     },
     "minimum-stability": "stable"
 }
